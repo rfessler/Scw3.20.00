@@ -1,0 +1,323 @@
+/* _variables imported:started */
+/* REPLACE THESE COLOR VALUES IN THE _header.scss file */
+/* DEFAULT PAGE HEIGHTS */
+/* GARAGE DOOR REPAIR HEIGHTS */
+/* _variables imported:finished */
+/* _blankwork imported:started */
+/* _blankwork imported:finished */
+/*
+* Scut, a collection of Sass/SCSS utilities.
+* Documentation at http://davidtheclark.github.io/scut
+*/
+/*==========================
+SCUT CLEARFIX
+http://davidtheclark.github.io/scut/#clearfix
+==========================*/
+/*==========================
+SCUT LIST: UNSTYLED
+http://davidtheclark.github.io/scut/#list_unstyled
+==========================*/
+/*==========================
+SCUT LIST: FLOATED
+http://davidtheclark.github.io/scut/#list_floated
+
+Depends on `list-unstyled` and `clearfix`.
+==========================*/
+/*==========================
+SCUT POSITIONING: COORDINATES
+http://davidtheclark.github.io/scut/#positioning_coordinates
+==========================*/
+/*==========================
+SCUT STRIP UNIT
+http://davidtheclark.github.io/scut/#strip_unit
+==========================*/
+/*==========================
+SCUT PIXELS TO EMS
+http://davidtheclark.github.io/scut/#pixels-to-ems
+
+Depends on `scut-strip-unit`.
+==========================*/
+/*==========================
+SCUT COLOR SWAP
+http://davidtheclark.github.io/scut/#color_swap
+==========================*/
+/*==========================
+SCUT HD BREAKPOINT
+http://davidtheclark.github.io/scut/#hd_breakpoint
+==========================*/
+/*==========================
+SCUT HIDE TEXT
+http://davidtheclark.github.io/scut/#hide_text
+==========================*/
+/*==========================
+SCUT RESET
+http://davidtheclark.github.io/scut/#reset
+==========================*/
+/*==========================
+SCUT SELECTED
+http://davidtheclark.github.io/scut/#selected
+==========================*/
+/*==========================
+SCUT BORDER
+http://davidtheclark.github.io/scut/#border
+==========================*/
+/*==========================
+SCUT CENTER ABSOLUTELY
+http://davidtheclark.github.io/scut/#center_absolutely
+==========================*/
+/*==========================
+SCUT FILL
+http://davidtheclark.github.io/scut/#fill
+==========================*/
+/*==========================
+SCUT FONTICON-LABEL
+http://davidtheclark.github.io/scut/#fonticon_label
+==========================*/
+/*==========================
+SCUT LIST: DIVIDED
+http://davidtheclark.github.io/scut/#list_divided
+
+Depends on `list-floated`, which depends in turn on `list-unstyled` and `clearfix`.
+==========================*/
+/*==========================
+SCUT LIST: INLINE
+http://davidtheclark.github.io/scut/#list_inline
+
+Depends on `list-unstyled`.
+==========================*/
+/*==========================
+SCUT LIST: PUNCTUATED
+http://davidtheclark.github.io/scut/#list_punctuated
+
+Depends on `list-unstyled`.
+==========================*/
+/*==========================
+SCUT MARGIN
+http://davidtheclark.github.io/scut/#margin
+==========================*/
+/*==========================
+SCUT PADDING
+http://davidtheclark.github.io/scut/#padding
+==========================*/
+/*==========================
+SCUT POSITIONING: ABSOLUTE
+http://davidtheclark.github.io/scut/#positioning_absolute
+
+Depends on `positioning-coordinates`.
+==========================*/
+/*==========================
+SCUT POSITIONING: FIXED
+http://davidtheclark.github.io/scut/#positioning_fixed
+
+Depends on `positioning-coordinates`.
+==========================*/
+/*==========================
+SCUT POSITIONING: RELATIVE
+http://davidtheclark.github.io/scut/#positioning_relative
+
+Depends on `positioning-coordinates`.
+==========================*/
+/*==========================
+SCUT RATIO-BOX
+http://davidtheclark.github.io/scut/#ratio-box
+==========================*/
+/*==========================
+SCUT SIZE
+http://davidtheclark.github.io/scut/#size
+==========================*/
+/*==========================
+SCUT STICKY FOOTER
+http://davidtheclark.github.io/scut/#sticky_footer
+==========================*/
+/*==========================
+SCUT V-CENTER: INLINE-BLOCK
+http://davidtheclark.github.io/scut/#v-center_inline-block
+==========================*/
+/*==========================
+SCUT V-CENTER: LINE-HEIGHT
+http://davidtheclark.github.io/scut/#v-center_line-height
+==========================*/
+/*==========================
+SCUT V-CENTER: TABLE DISPLAY
+http://davidtheclark.github.io/scut/#v-center_table_display
+==========================*/
+/*==========================
+SCUT CIRCLE
+http://davidtheclark.github.io/scut/#circle
+==========================*/
+/*==========================
+SCUT FOURSQUARE
+http://davidtheclark.github.io/scut/#foursquare
+==========================*/
+/*==========================
+SCUT TRIANGLE
+http://davidtheclark.github.io/scut/#triangle
+==========================*/
+/*==========================
+BOOKENDS
+http://davidtheclark.github.io/scut/#bookends
+==========================*/
+/*==========================
+SCUT CSS CHARACTERS
+http://davidtheclark.github.io/scut/#characters
+==========================*/
+/*==========================
+SCUT FONT-FACE
+http://davidtheclark.github.io/scut/#font-face
+==========================*/
+/*==========================
+SCUT HANGING INDENT
+http://davidtheclark.github.io/scut/#hanging_indent
+==========================*/
+/*==========================
+SCUT INDENTED PARAGRAPHS
+http://davidtheclark.github.io/scut/#indented_paragraphs
+==========================*/
+/*==========================
+SCUT KEY-VALUE
+http://davidtheclark.github.io/scut/#key-value
+==========================*/
+/*==========================
+SCUT LINK: BOTTOM-BORDERED
+http://davidtheclark.github.io/scut/#link_bottom-bordered
+==========================*/
+/*==========================
+SCUT REVERSE ITALICS
+http://davidtheclark.github.io/scut/#reverse-italics
+==========================*/
+/*==========================
+SCUT SIDE-LINED
+http://davidtheclark.github.io/scut/#side-lined
+==========================*/
+/* _placeholders write:started */
+/* _placeholders write:started */
+/* _all-mixins write:started */
+/* _mixins imported:started */
+/* _mixins imported:started */
+/* _typographymixins imported:started */
+/* _typographymixins imported:finished */
+/* _arrows imported:started */
+/* _arrows imported:finished */
+/*     _font Loaded */
+/* _all-mixins write:finished */
+/* _extends write:started */
+/* line 8, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_extends.scss */
+.emergency {
+  color: #d14e00;
+}
+/* line 8, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_extends.scss */
+.emergency:hover {
+  cursor: pointer;
+}
+
+/* line 15, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_extends.scss */
+.newContainer-borderless,
+.newContainer {
+  height: auto;
+  margin-top: 40px;
+}
+
+/* _extends write:finished */
+/* line 21, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+html {
+  font: 16px/1.2 normal Arial, Helvetica, sans-serif;
+}
+
+/* line 22, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.mobile body {
+  width: 102%;
+}
+
+/* line 23, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+body {
+  font-size: 100%;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+/* line 24, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+span.skype_pnh_container {
+  display: none !important;
+}
+
+/* line 25, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+span.skype_pnh_print_container {
+  display: inline !important;
+}
+
+/* line 28, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 31, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.span2 {
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  border: 0 none;
+}
+
+/* line 37, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.form-inputs input[type="button"] {
+  margin: 4px 4px 3px -8px;
+  padding: 2px;
+}
+
+/* line 40, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.block .subcontainer {
+  height: 100%;
+}
+
+/* line 45, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.hide, .HIDE-THIS {
+  display: none;
+}
+
+/* line 46, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.hideoffers {
+  display: none;
+}
+
+/* line 48, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+h6 {
+  font-size: 1.1em;
+}
+
+/* line 51, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.spacerline {
+  display: inline;
+  float: left;
+  width: 990px;
+  background: #0069aa;
+  height: 3px;
+}
+
+/* line 61, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+.articleLinkButtons {
+  border-radius: 5px;
+  background-color: #0069aa;
+  color: white;
+  border: 1px solid black;
+  height: 25px;
+  float: left;
+  padding: 2px 10px;
+  margin: 10px 15px 10px 0;
+  font-size: .9em;
+  float: right;
+}
+
+/* line 70, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+ul {
+  list-style-position: outside;
+  padding-left: 20px;
+}
+/* line 74, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+ul li {
+  margin-bottom: 5px;
+}
+
+/* line 94, C:/Users/rfessler/Documents/Visual Studio 2010/Projects/SearsBusinessesWebProjects/SearsCleanWebSites/SearsCleanWebV3.20.00/src/assets/scss/_base2.scss */
+body {
+  background-color: brown;
+}

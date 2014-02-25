@@ -1,0 +1,97 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$CompressAndExpandIcons-sprite-dimensions : false !default;
+$CompressAndExpandIcons-use-percentages   : false !default;
+$CompressAndExpandIcons-position          : 0% !default;
+$CompressAndExpandIcons-spacing           : 0 !default;
+$CompressAndExpandIcons-repeat            : no-repeat !default;
+$CompressAndExpandIcons-prefix            : '' !default;
+$CompressAndExpandIcons-clean-up          : true !default;
+$CompressAndExpandIcons-layout            : vertical !default;
+$CompressAndExpandIcons-inline            : false !default;
+$CompressAndExpandIcons-sort-by           : 'none' !default;
+$CompressAndExpandIcons-class-separator   : $default-sprite-separator !default;
+$CompressAndExpandIcons-sprite-base-class : ".CompressAndExpandIcons#{$CompressAndExpandIcons-class-separator}sprite" !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $CompressAndExpandIcons-minus-position: $CompressAndExpandIcons-position !default;
+   $CompressAndExpandIcons-minus-spacing:  $CompressAndExpandIcons-spacing !default;
+   $CompressAndExpandIcons-minus-repeat:   $CompressAndExpandIcons-repeat !default;
+ 
+   $CompressAndExpandIcons-plus-position: $CompressAndExpandIcons-position !default;
+   $CompressAndExpandIcons-plus-spacing:  $CompressAndExpandIcons-spacing !default;
+   $CompressAndExpandIcons-plus-repeat:   $CompressAndExpandIcons-repeat !default;
+ 
+
+ $CompressAndExpandIcons-sprites: sprite-map("CompressAndExpandIcons/*.png",
+ 
+   $CompressAndExpandIcons-minus-position: $CompressAndExpandIcons-minus-position, 
+   $CompressAndExpandIcons-minus-spacing:  $CompressAndExpandIcons-minus-spacing, 
+   $CompressAndExpandIcons-minus-repeat:   $CompressAndExpandIcons-minus-repeat,
+ 
+   $CompressAndExpandIcons-plus-position: $CompressAndExpandIcons-plus-position, 
+   $CompressAndExpandIcons-plus-spacing:  $CompressAndExpandIcons-plus-spacing, 
+   $CompressAndExpandIcons-plus-repeat:   $CompressAndExpandIcons-plus-repeat,
+ 
+ $layout   : $CompressAndExpandIcons-layout,
+ $cleanup  : $CompressAndExpandIcons-clean-up,
+ $spacing  : $CompressAndExpandIcons-spacing,
+ $position : $CompressAndExpandIcons-position,
+ $sort-by  : $CompressAndExpandIcons-sort-by
+ );
+
+
+// All sprites should extend this class
+// The CompressAndExpandIcons-sprite mixin will do so for you.
+@if $CompressAndExpandIcons-inline {
+  #{$CompressAndExpandIcons-sprite-base-class} {
+    background-image: inline-sprite($CompressAndExpandIcons-sprites);
+  } 
+} @else {
+  #{$CompressAndExpandIcons-sprite-base-class} {
+    background-image: $CompressAndExpandIcons-sprites;
+    background-repeat: no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function CompressAndExpandIcons-sprite-width($name) {
+    @return sprite-width($CompressAndExpandIcons-sprites, $name);
+  }
+
+  @function CompressAndExpandIcons-sprite-height($name) {
+    @return sprite-height($CompressAndExpandIcons-sprites, $name);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin CompressAndExpandIcons-sprite-dimensions($name) {
+  @include sprite-dimensions($CompressAndExpandIcons-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin CompressAndExpandIcons-sprite-position($name, $offset-x: 0, $offset-y: 0, $use-percentages: $CompressAndExpandIcons-use-percentages) {
+  @include sprite-background-position($CompressAndExpandIcons-sprites, $name, $offset-x, $offset-y, $use-percentages)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin CompressAndExpandIcons-sprite($name, $dimensions: $CompressAndExpandIcons-sprite-dimensions, $offset-x: 0, $offset-y: 0, $use-percentages: $CompressAndExpandIcons-use-percentages, $separator: $CompressAndExpandIcons-class-separator) {
+  @extend #{$CompressAndExpandIcons-sprite-base-class};
+  @include sprite($CompressAndExpandIcons-sprites, $name, $dimensions, $offset-x, $offset-y, $use-percentages, $separator: $separator);
+}
+
+@mixin CompressAndExpandIcons-sprites($sprite-names, $dimensions: $CompressAndExpandIcons-sprite-dimensions, $prefix: sprite-map-name($CompressAndExpandIcons-sprites), $offset-x: 0, $offset-y: 0, $use-percentages: $CompressAndExpandIcons-use-percentages, $separator: $CompressAndExpandIcons-class-separator) {
+  @include sprites($CompressAndExpandIcons-sprites, $sprite-names, $CompressAndExpandIcons-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y, $use-percentages, $separator: $separator)
+}
+
+// Generates a class for each sprited image.
+@mixin all-CompressAndExpandIcons-sprites($dimensions: $CompressAndExpandIcons-sprite-dimensions, $prefix: sprite-map-name($CompressAndExpandIcons-sprites), $offset-x: 0, $offset-y: 0, $use-percentages: $CompressAndExpandIcons-use-percentages, $separator: $CompressAndExpandIcons-class-separator) {
+  @include CompressAndExpandIcons-sprites(minus plus, $dimensions, $prefix, $offset-x, $offset-y, $use-percentages, $separator: $separator);
+}

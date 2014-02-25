@@ -1,0 +1,143 @@
+/* _estimate imported:started */
+
+
+// Local Variables
+$slider_columns: 13;  
+$specialoffer_container_width: 235px;
+
+
+.estimateRequestForm {
+//	height: 100%
+}
+
+.estimateRequestFormContent { 
+    @include column($_columns - $slider_columns, -10px);	 
+	padding: 5px 20px;
+//	height: $free_estimate_container_height;
+	background-image: url(../images/backgrounds/estimate-form-background_thin.png);	
+	background-color: $color_background-specialoffers;
+	@include alpha;
+	@include omega;
+
+	input {	
+		border: none;
+		height: 20px;
+	}
+
+	.specialOffers {display: none;}
+
+}
+
+ 
+
+.form-inputs {
+//	width: $specialoffer_container_width;
+
+	.input-prepend > span {
+		@include box-sizing(content-box);
+		@include opacity(0.5);
+	}
+}
+
+/*.promo .input-prepend,
+.zipcode .input-prepend {
+	width: 193px; 
+	margin-bottom: 0;
+}*/
+
+.chrome .promo .input-prepend, .webkit .promo .input-prepend {
+		.add-on { margin-top: -4px;}
+		label input { padding: 0px 4px; margin-top:-1px;}
+		//input {margin: 3px 4px 3px 0;  padding: 2px 4px; margin-top:4px;}
+}
+.ie .promo .input-prepend {
+	input { margin-top: 3px;}
+	label input { margin-top: 0px;}
+}
+.input-prepend {	
+	border: 1px solid lighten(#000, 50%);
+	@include border-radius(5px);
+	background: #fff;
+	/*margin-bottom: 10px;*/
+	height: 34px;
+
+	.zipcode & {
+		width: 193px;
+		padding: 0px;
+		.add-on { margin: 4px 3px 3px -8px; }
+		.locatorcontent & {margin-left: -16px;}
+	}
+	.promo & {
+		width: 193px;
+		padding: 0px;
+		.add-on {margin-left: 4px; margin-top:-2px;} 
+		label input { margin: 3px 4px 3px 0;  padding: 2px 4px; margin-top:4px;}
+		input { margin: 3px 4px 3px 0;  padding: 2px 4px; margin-top:4px; }
+	}
+	.columnbox & {
+		.add-on {margin:3px;}
+	}
+
+}
+
+.specialOffers {
+	@include border-radius;
+	background-color: darken($color_background-specialoffers, 20%);
+	position: absolute;
+	width: $specialoffer_container_width;
+	padding: 5px 10px;
+	z-index: 99;
+
+	.seperator { 
+		@include seperator($color_background-specialoffers, 
+			$height: 6px, 
+			$width: 90%); 
+			margin: 10px 0;
+	}
+	.offer { 
+		cursor: pointer; 
+		margin: 10px 0; 
+	}
+	.seemore { 
+		cursor: pointer; 
+		height: 30px; 
+		text-align: center; 
+		margin-top: 20px; 
+	}
+	
+	.seemoreOffers {
+		text-align: center;		
+		a {
+			&:link, &:visited { @include vanillaLink; }
+		}
+	}
+
+//	 a.seemoreOffers:link, a.seemoreOffers:visited { @include vanillaLink; }	
+		 
+	
+	.offername { @include ArticleHeaderLarge; }
+}
+
+#submitCustomerInfo {
+//	margin-top: -$default_margin_top;	
+	margin-right: 25px;
+}
+
+
+//@import "sprites/_misc";
+//@include all-misc-sprites(true);
+
+.textdiv {
+	background-color: blue;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    width: 100px;
+	@include misc-sprites(OrangeSquare); 
+}
+
+    
+/* _estimate imported:finished */
+
+
+

@@ -1,0 +1,45 @@
+/* _uniBlock imported:started */ 
+
+$blocks-uni: 1;
+
+$width-uni-fullpagecontent: round($_columns) !default;
+$width-uni-shortpagecontent: round($columns-shortpagecontent) !default;
+
+
+
+.uniBlock {
+	
+	.fullpagecontent & {
+		.subcontainer {@include column($width-uni-fullpagecontent);}
+	}
+
+	.shortpagecontent & {
+		.subcontainer {
+			@include column($width-uni-shortpagecontent, 26px);
+			padding: 5px;
+		}
+	}
+}
+
+
+
+
+
+.v2-uniBlock {		
+	.fullpagecontent & {
+		.v2-subcontainer {@include column($width-uni-fullpagecontent, 4px);}
+	}
+	.shortpagecontent & {
+		.v2-subcontainer {@include column($width-uni-shortpagecontent, 4px);}
+	}
+
+	@include alphaomega;
+
+	.v2-subcontainer {
+		position: relative;
+		height: 100%;
+	}
+}
+
+
+/* _uniBlock imported:finished */ 

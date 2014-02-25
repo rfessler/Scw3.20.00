@@ -1,0 +1,50 @@
+/* _screen write:started */ 
+
+/*!
+* CSS Compiled on: #{timestamp()}
+*/
+
+
+
+// DEBUG MODE & ABTest Mode
+
+$debugMode:  false;
+$actionModeInDevelopment: false; 
+$updateToHeaderTags: false;
+$debugBorderMode: false;
+$testMode: false;
+$updateToHeaderTags: false;
+
+
+@import "base";  // The partial containing the Imports.
+@import "scratch";
+
+
+/* _screen write:finished */
+
+
+
+
+
+
+/* _screen-scratch write:started */ 
+// Make sure the scratch & debug imports are 
+// at the end of this import file
+
+
+
+
+@import "debug/debug";
+
+
+
+@if $testMode == true {	
+	.shortpagecontent { border: 1px solid red; }
+}
+
+
+@import "ABTest";
+
+
+/* _screen-scratch write:finished */ 
+

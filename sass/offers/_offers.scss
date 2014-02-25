@@ -1,0 +1,259 @@
+/* offers imported:started */ 
+
+
+/* #region "NEW LOCAL OFFERS STYLES" */
+
+
+.offercontainersingle {
+	background-color: $color_background-offers;
+	//padding: 10px;
+	padding: 10px 10px 45px;
+	margin: 10px auto;
+	position: relative;
+	//height: 300px;
+	@include border-radius(7px);
+	.contentcaption {
+		font-size: 1em;
+		font-weight: bold;	
+		margin-bottom: 0px;	
+		.leftnav & {font-size: 1em;}
+	}
+	.contenttext {
+		font-size: 1em;
+
+		.leftnav & {font-size: 0.9em;}
+	}
+
+	&:hover {cursor:pointer; background-color:$color_background-offershover;}
+}
+
+
+div[id$=LocalSpecialOffers] {
+	.locatorcontent & { background-color: transparent; height: 200px; }
+
+	background-color: $color_default-localoffers_background;	
+	//height: 440px;
+}
+
+
+
+
+
+
+
+.zipcodecontainer {
+
+	.locatorcontent & {
+		.zipcode { margin: 0 auto; }
+		.noshow {display:none;}
+	}
+
+	text-align:center;
+	.emphasizedcaptionzip { 
+		font: {size: 1.2em; weight:bold;}
+		color: $color_pagetitle-caption;
+		margin-bottom: 10px;
+		padding-bottom: 3px;
+		.divnumber { 
+			font: {size: 1.25em; weight:bold;}
+		}
+	}
+//	.noshow {display: none;}
+//	.seperator {
+//		/*width: 195px;*/
+//		width: auto;
+//		@extend .seperatorzip;
+//	}
+}
+
+
+
+
+
+.zipcodecontainer {
+	/*background-color: #e2e8f5;*/
+	text-align:center;
+	.leftnav & {
+		.emphasizedcaptionzip { 
+			font: {size: 1.2em; weight:bold;}
+			color: $color_pagetitle-caption;
+			margin-bottom: 10px;
+			padding-bottom: 3px;
+			.divnumber { 
+				font: {size: 1.25em; weight:bold;}
+			}
+		}
+		.noshow {display: none;}
+		.seperator {
+			/*width: 195px;*/
+			width: auto;
+			@extend .seperatorzip;
+		}
+	}
+
+	#PhotoshowContainer & {
+		.emphasizedcaptionzip {
+			.divnumber {
+				font: {size: 1.35em; weight: bold;}
+			}
+			@extend .emphasizedcaption !optional;
+		}
+		.seperator { 
+			width: 200px;
+			@extend .seperatorzip;
+		}
+	}
+
+	.offersestimate-seperator {
+		background-color: transparent;
+		margin-top:10px;
+		margin-bottom:10px;
+		padding-top:3px;
+		/*padding-bottom:3px;*/
+	}
+}
+
+/* #endregion */
+
+
+
+/* #region "LEFTNAV LOCAL OFFERS STYLES" */
+
+/* #endregion */
+
+
+/* #region "DEFAULT PAGE LOCAL OFFERS STYLES" */
+
+
+
+
+
+
+#_PhotoshowContainer .groupcontainer {
+	height: 440px;
+	/*background-image: url(../images/backgrounds/specialofferuc/RSwirl274_400_25.jpg);*/
+	//background-color: #e2e8f5;
+
+//	position: relative;
+//	.viewmoreoffers {
+//		position: absolute;
+//		bottom: 10px; left: 10px;
+//	}
+
+}
+
+.viewmoreoffers {margin-top: 20px;}
+
+
+.ulspecialOffersItems {
+	a.linkaslink { font-size: .9em;}
+}
+
+div.promoSection  {overflow: hidden;}
+
+.promoinputcontainer {width: 100%;}
+
+
+input.promo,
+input.zipcode {width: 110px;}
+
+.buttoncontrol { 
+}
+
+.offerinputcontrols {
+	input.button-link-reset {
+		@include system-sprite(delete);
+		width: 23px; height: 23px;
+		margin-top: -2px;
+		@extend .button-link;
+	}
+}
+
+
+.offerscontainer {
+	#PhotoshowContainer & {
+		display: none;
+	}
+}
+
+.offersimagecontainer {
+	.leftnav & {
+		display:none;
+	}
+}
+
+
+
+
+
+.seperatorzip {
+	background-color: tansparent;
+	padding: 3px;
+	margin: 10px auto;
+	@extend .g-seperator;
+}
+
+
+.disableClass {
+	background-color: gray;
+	border: 1px solid gray;
+
+	&:hover {cursor: default;
+		background-color: gray;
+		border: 1px solid gray;
+	}	
+}
+
+.shoppingCart {
+	.topBannerContainer & {
+		margin: 6px 0 0 0;
+		.cartAmount {
+			color:white; 
+			font-size:.6em; 
+			top:-5px;
+		}
+		&:hover {
+			cursor:pointer;
+			/*color: $color_background-articles;*/
+			/*background-image: url("../images/misc/EmptyShoppingCartBlue.png");*/
+			@include misc-sprite(EmptyShoppingCartBlue);
+		}
+	}
+
+	/*background-image: url("../images/misc/EmptyShoppingCartOrange.png");*/
+	@include misc-sprite(EmptyShoppingCartOrange);
+	/*background-size: 40px 22px;*/
+	background-color:transparent;
+
+	float:right;
+	margin:2px 20px 0 0;
+	height:29px;
+	width:43px;
+	padding-left:3px;
+
+	.cartAmount {
+		position:absolute;
+		text-align:center;
+		top:-3px;
+		width:inherit;
+		height:inherit;
+		font-size:.8em;
+	}
+}
+
+.emphasizedcaptionoffers {
+	color: #003E7E;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 3px;
+	padding-bottom: 3px;
+	&.promoheader {
+		//margin-bottom: -3px;
+		margin-top: 20px;
+	}
+}
+/* #endregion */
+
+
+
+/* offers imported:finished */ 

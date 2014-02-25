@@ -1,0 +1,76 @@
+/* _ucproductaddon imported:started */ 
+
+$debugpage: $debugBorderMode;
+
+
+$optionbackgroundcolor: #eceef0;
+$optionbackgroundbordercolor: darken($optionbackgroundcolor, 10%);
+
+.Joptions.AddonUCContent {	
+	padding: 10px;	
+	padding-left: 5px;
+	background-color: $optionbackgroundcolor; 
+	border: 1px solid $optionbackgroundbordercolor;	
+	//border-top: none;
+	margin-top: 15px;
+	overflow: hidden;
+
+	.notice {
+		display: none;
+		margin-top: 20px;
+		font: {
+			weight: bold;
+			size: 0.8em;
+			style: italic; 
+		}
+	}
+	h2 {
+		font-size: 1em;
+		float: left;
+		margin-bottom: 10px;		
+	}
+
+	img {float:right;}
+	background-image: url(../images/WebOfferPanels/puzzlepieces.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+table[id$=OptionsOffer] {	
+	display: table;
+	border-collapse: separate;
+	width: 100%;
+
+	.descheader {width: auto;}
+	.servicecolumn {width: auto;}
+	.protectantcolumn {width: auto;}
+	.deocolumn {width: auto;}
+	.ddlcolumn {width: 80px; padding-left: 20px;}
+
+	.amount {padding-left: 10px;}
+	.header-options {font-weight: bold;	}
+	.thead th { padding-left: 20px;	}
+	.unitheader {		
+		font-weight: normal;	
+		width: 170px;
+	}
+	
+	select {width: 100%;}
+	th {text-align: left;}
+
+	@if ($debugpage) {
+		border: 1px solid green;
+		border-spacing: 2px;
+		border-color: gray;
+		.servicecolumn  {background-color: pink;}
+		.protectantcolumn  {background-color: lightgreen;}
+		.deocolumn  {background-color: lightblue;}
+		.ddlcolumn {background-color: lightgray;}
+	}
+}
+
+
+
+
+
+/* _ucproductaddon imported:finished */ 

@@ -1,0 +1,125 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$system-sprite-base-class: ".system-sprite" !default;
+$system-sprite-dimensions: false !default;
+$system-position: 0% !default;
+$system-spacing: 0 !default;
+$system-repeat: no-repeat !default;
+$system-prefix: '' !default;
+$system-clean-up: true !default;
+$system-layout:vertical !default;
+$system-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $system-confirm-position: $system-position !default;
+   $system-confirm-spacing:  $system-spacing !default;
+   $system-confirm-repeat:   $system-repeat !default;
+ 
+   $system-delete-position: $system-position !default;
+   $system-delete-spacing:  $system-spacing !default;
+   $system-delete-repeat:   $system-repeat !default;
+ 
+   $system-error-position: $system-position !default;
+   $system-error-spacing:  $system-spacing !default;
+   $system-error-repeat:   $system-repeat !default;
+ 
+   $system-information-position: $system-position !default;
+   $system-information-spacing:  $system-spacing !default;
+   $system-information-repeat:   $system-repeat !default;
+ 
+   $system-insert-position: $system-position !default;
+   $system-insert-spacing:  $system-spacing !default;
+   $system-insert-repeat:   $system-repeat !default;
+ 
+   $system-warning-position: $system-position !default;
+   $system-warning-spacing:  $system-spacing !default;
+   $system-warning-repeat:   $system-repeat !default;
+ 
+
+ $system-sprites: sprite-map("system/*.png",
+ 
+   $system-confirm-position: $system-confirm-position, 
+   $system-confirm-spacing:  $system-confirm-spacing, 
+   $system-confirm-repeat:   $system-confirm-repeat,
+ 
+   $system-delete-position: $system-delete-position, 
+   $system-delete-spacing:  $system-delete-spacing, 
+   $system-delete-repeat:   $system-delete-repeat,
+ 
+   $system-error-position: $system-error-position, 
+   $system-error-spacing:  $system-error-spacing, 
+   $system-error-repeat:   $system-error-repeat,
+ 
+   $system-information-position: $system-information-position, 
+   $system-information-spacing:  $system-information-spacing, 
+   $system-information-repeat:   $system-information-repeat,
+ 
+   $system-insert-position: $system-insert-position, 
+   $system-insert-spacing:  $system-insert-spacing, 
+   $system-insert-repeat:   $system-insert-repeat,
+ 
+   $system-warning-position: $system-warning-position, 
+   $system-warning-spacing:  $system-warning-spacing, 
+   $system-warning-repeat:   $system-warning-repeat,
+ 
+ $layout: $system-layout,
+ $cleanup: $system-clean-up
+ );
+
+
+
+// All sprites should extend this class
+// The system-sprite mixin will do so for you.
+@if $system-inline {
+  #{$system-sprite-base-class} {
+    background-image: inline-sprite($system-sprites);
+  } 
+} @else {
+  #{$system-sprite-base-class} {
+    background: $system-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function system-sprite-width($name) {
+    $file: sprite_file($system-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function system-sprite-height($name) {
+    $file: sprite_file($system-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin system-sprite-dimensions($name) {
+  @include sprite-dimensions($system-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin system-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($system-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin system-sprite($name, $dimensions: $system-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$system-sprite-base-class};
+  @include sprite($system-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin system-sprites($sprite-names, $dimensions: $system-sprite-dimensions, $prefix: sprite-map-name($system-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($system-sprites, $sprite-names, $system-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-system-sprites($dimensions: $system-sprite-dimensions, $prefix: sprite-map-name($system-sprites), $offset-x: 0, $offset-y: 0) {
+  @include system-sprites(confirm delete error information insert warning, $dimensions, $prefix, $offset-x, $offset-y);
+}

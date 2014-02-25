@@ -1,0 +1,319 @@
+/* _v2 imported:started */ 
+
+
+
+
+.v2-image {
+//	overflow: hidden;
+	text-align: center;
+//	padding: 10px;
+	&.left {float: left; margin-right: 5px; text-align: left;}
+	&.right {float: right; margin-left: 5px; text-align: right;}
+	&.seperator img { @include seperatorLine($bottom);}	
+}
+
+
+
+.contenttop {margin-top: 10px;}
+
+
+
+////.v2-tips-caption { font-size: 1.1em;}
+
+
+
+
+
+.v2-text {float:left;}
+.article {margin-bottom: 20px;}
+
+
+
+$columns_duoA-image-shortpagecontent: 10;
+$columns_duoA-text-shortpagecontent: 4;
+$columns_duoA-image-fullpagecontent: 12;
+$columns_duoA-text-fullpagecontent: 6;
+ 
+.v2-duoBlock-A {
+	.fullpagecontent & {
+		.image {
+			@include column($columns_duoA-image-fullpagecontent, 2px);
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}	
+		}
+		.text {
+			@include column($columns_duoA-text-fullpagecontent);
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}
+			padding-left: 0;
+		}
+	}
+	.shortpagecontent & {
+		.image {
+			@include alphaomega;
+			@include column($columns_duoA-image-shortpagecontent, 2px);
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}
+		}
+		.text {
+			@include alphaomega;
+			@include column($columns_duoA-text-shortpagecontent);
+			padding-right: 0;
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}
+		}
+	}
+}
+
+.v2-duoBlock-C-0 {
+	@extend .v2-duoBlock-A;
+	
+	.fullpagecontent & {
+		.image {
+			@include column(9, -38px);
+			float: right;		
+			img {float: right;}		
+		}
+		.text {
+			@include column(9, 30px);	
+			float: left;
+			.tip > div {height: 115px;}
+			.tip > img {
+				float:left;	
+				margin-right: 5px;
+			}
+		}		
+	}
+	.v2-subcontainer.text, 
+	.v2-subcontainer.image {@include alphaomega;}
+}
+
+
+
+.v2-duoBlock-Ca {
+	@extend .v2-duoBlock-A;
+
+
+	.fullpagecontent & {
+		.image {
+			@include column(4);
+			@include alphaomega;
+			float: right;		
+			img {float: right;}		
+		}
+		.text {
+			@include column(14);	
+			float: left;
+			.tip > div {height: 70px;}
+			.tip > img {
+				float:left;	
+				margin-right: 5px;
+			}
+		}		
+	}
+
+
+	.v2-subcontainer.text, 
+	.v2-subcontainer.image {@include alphaomega;}
+
+
+
+
+
+
+}
+.v2-duoBlock-Cb {
+	@extend .v2-duoBlock-A;
+
+
+	.fullpagecontent & {
+		.image {
+			@include column(8);
+			@include alphaomega;
+			float: right;		
+			img {float: right;}		
+		}
+		.text {
+			@include column(10);	
+			float: left;
+			.tip > div {height: 70px;}
+			.tip > img {
+				float:left;	
+				margin-right: 5px;
+			}
+		}		
+	}
+
+	.v2-subcontainer.text, 
+	.v2-subcontainer.image {@include alphaomega;}
+}
+
+.v2-duoBlock-C {
+	@extend .v2-duoBlock-A;
+	
+	.fullpagecontent & {
+		.image {
+			@include column(6);
+			@include alphaomega;
+			float: right;		
+			img {float: right;}		
+		}
+		.text {
+			@include column(12);	
+			float: left;
+			.tip > div {height: 70px;}
+			.tip > img {
+				float:left;	
+				margin-right: 5px;
+			}
+		}		
+	}
+
+//	.fullpagecontent & { 
+//		.image {
+//			@include column(9);
+//			@include alphaomega;					
+//
+//			.imageright  & {
+//				float: right;		
+//				img {float: right;}									
+//			}
+//			.imageleft & {
+//				float: left;		
+//				img {float: left;}									
+//			}
+//		}
+//
+//		.text {
+//			@include column(9);	
+//			float: left;
+//			.imageright  & {float: left;}
+//			.imageleft {float: right;}						
+//		}
+//	}
+
+//		.imageright {
+//			.image {
+//
+//				float: right;		
+//				img {float: right;}		
+//			}
+//		
+//			.text {
+//				@include column(8);	
+//				float: left;
+//				.tip > div {height: 115px;}
+//				.tip > img {
+//					float:left;	
+//					margin-right: 5px;
+//				}
+//			}
+//		}
+//	
+//		.imageleft {
+//			.image {
+//
+//
+//			}
+//			.text {
+//
+//			}
+//		}
+//	}
+
+	.v2-subcontainer.text, 
+	.v2-subcontainer.image {@include alphaomega;}
+}
+
+
+
+
+$columns_duoD-image-shortpagecontent: 5;
+$columns_duoD-text-shortpagecontent: 9;
+
+.v2-duoBlock-D { 
+	.shortpagecontent & {
+		.image {
+			@include column($columns_duoD-image-shortpagecontent, -10px);
+			@include omega;
+			float: right;		
+			img {float: right;}		
+		}
+		.text {
+			@include column($columns_duoD-text-shortpagecontent);
+			float: left;	
+			.tip > div {height: 70px;}
+			.tip > img {
+				float:left;	
+				margin-right: 5px;
+			}
+		}
+	}
+	.v2-subcontainer.text, 
+	.v2-subcontainer.image {@include alphaomega;}
+}
+//
+//
+//#DoorsTipsAndResources {
+//	.tip > div {height: 115px;}
+//	.tip > img {
+//		float:left;	
+//		margin-right: 5px;
+//	}
+//
+//	.v2-subcontainer.text, 
+//	.v2-subcontainer.image {@include alphaomega;}
+//
+//}
+
+
+
+#FullPageContent > .v2-subcontainer {
+	padding: 10px;
+}
+
+
+//TODO: remove #pagebody obsolete
+#pageBody > .v2-subcontainer {
+	padding: 10px;
+}
+
+
+.v2-duoBlock-B {
+	.fullpagecontent & {
+		.v2-subcontainer {@include column($width-duo-fullpagecontent, -2px);}
+	}
+	.shortpagecontent & {
+		.image {
+			@include column($columns_duoA-image-shortpagecontent, 2px);
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}
+		}
+		.text {
+			@include column($columns_duoA-text-shortpagecontent);
+			padding-right: 0;
+			&.alpha {@include alpha;}	
+			&.omega {@include omega;}
+		}
+	}
+
+	$columns_duo-image-shortpagecontent: 10;
+$columns_duo-text-shortpagecontent: 4;
+
+}
+
+
+/* _v2 imported:finished */ 
+
+
+
+
+
+
+
+//	@debug "$columns-leftnav::  #{$columns-leftnav}";
+//	@debug "$columns-maincontent::  #{$columns-maincontent}";
+//	@debug "$blocks-tri::  #{$blocks-tri}";
+//	@debug "$columns-maincontent / $blocks-tri::  #{$columns-maincontent / $blocks-tri}";
+//	@debug "$_columns / $blocks-tri::  #{$_columns / $blocks-tri}";
+//	@debug "$_columns / $blocks-tri::  #{$_columns / $blocks-tri}";

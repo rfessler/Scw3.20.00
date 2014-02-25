@@ -1,0 +1,172 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$swatches-sprite-base-class: ".swatches-sprite" !default;
+$swatches-sprite-dimensions: false !default;
+$swatches-position: 0% !default;
+$swatches-spacing: 0 !default;
+$swatches-repeat: no-repeat !default;
+$swatches-prefix: '' !default;
+$swatches-clean-up: true !default;
+$swatches-layout:vertical !default;
+$swatches-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $swatches-AntiqueIvory_60-position: $swatches-position !default;
+   $swatches-AntiqueIvory_60-spacing:  $swatches-spacing !default;
+   $swatches-AntiqueIvory_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-ArchGray_60-position: $swatches-position !default;
+   $swatches-ArchGray_60-spacing:  $swatches-spacing !default;
+   $swatches-ArchGray_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-DeloreanGray_60-position: $swatches-position !default;
+   $swatches-DeloreanGray_60-spacing:  $swatches-spacing !default;
+   $swatches-DeloreanGray_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-Jamoca_60-position: $swatches-position !default;
+   $swatches-Jamoca_60-spacing:  $swatches-spacing !default;
+   $swatches-Jamoca_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-LightPewter_60-position: $swatches-position !default;
+   $swatches-LightPewter_60-spacing:  $swatches-spacing !default;
+   $swatches-LightPewter_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-Malibu_60-position: $swatches-position !default;
+   $swatches-Malibu_60-spacing:  $swatches-spacing !default;
+   $swatches-Malibu_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-Mist_60-position: $swatches-position !default;
+   $swatches-Mist_60-spacing:  $swatches-spacing !default;
+   $swatches-Mist_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-Oak_60-position: $swatches-position !default;
+   $swatches-Oak_60-spacing:  $swatches-spacing !default;
+   $swatches-Oak_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-SmokeGray_60-position: $swatches-position !default;
+   $swatches-SmokeGray_60-spacing:  $swatches-spacing !default;
+   $swatches-SmokeGray_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-Tarrragon_60-position: $swatches-position !default;
+   $swatches-Tarrragon_60-spacing:  $swatches-spacing !default;
+   $swatches-Tarrragon_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-TaupeTwist_60-position: $swatches-position !default;
+   $swatches-TaupeTwist_60-spacing:  $swatches-spacing !default;
+   $swatches-TaupeTwist_60-repeat:   $swatches-repeat !default;
+ 
+   $swatches-WinterGray_60-position: $swatches-position !default;
+   $swatches-WinterGray_60-spacing:  $swatches-spacing !default;
+   $swatches-WinterGray_60-repeat:   $swatches-repeat !default;
+ 
+
+ $swatches-sprites: sprite-map("swatches/*.png",
+ 
+   $swatches-AntiqueIvory_60-position: $swatches-AntiqueIvory_60-position, 
+   $swatches-AntiqueIvory_60-spacing:  $swatches-AntiqueIvory_60-spacing, 
+   $swatches-AntiqueIvory_60-repeat:   $swatches-AntiqueIvory_60-repeat,
+ 
+   $swatches-ArchGray_60-position: $swatches-ArchGray_60-position, 
+   $swatches-ArchGray_60-spacing:  $swatches-ArchGray_60-spacing, 
+   $swatches-ArchGray_60-repeat:   $swatches-ArchGray_60-repeat,
+ 
+   $swatches-DeloreanGray_60-position: $swatches-DeloreanGray_60-position, 
+   $swatches-DeloreanGray_60-spacing:  $swatches-DeloreanGray_60-spacing, 
+   $swatches-DeloreanGray_60-repeat:   $swatches-DeloreanGray_60-repeat,
+ 
+   $swatches-Jamoca_60-position: $swatches-Jamoca_60-position, 
+   $swatches-Jamoca_60-spacing:  $swatches-Jamoca_60-spacing, 
+   $swatches-Jamoca_60-repeat:   $swatches-Jamoca_60-repeat,
+ 
+   $swatches-LightPewter_60-position: $swatches-LightPewter_60-position, 
+   $swatches-LightPewter_60-spacing:  $swatches-LightPewter_60-spacing, 
+   $swatches-LightPewter_60-repeat:   $swatches-LightPewter_60-repeat,
+ 
+   $swatches-Malibu_60-position: $swatches-Malibu_60-position, 
+   $swatches-Malibu_60-spacing:  $swatches-Malibu_60-spacing, 
+   $swatches-Malibu_60-repeat:   $swatches-Malibu_60-repeat,
+ 
+   $swatches-Mist_60-position: $swatches-Mist_60-position, 
+   $swatches-Mist_60-spacing:  $swatches-Mist_60-spacing, 
+   $swatches-Mist_60-repeat:   $swatches-Mist_60-repeat,
+ 
+   $swatches-Oak_60-position: $swatches-Oak_60-position, 
+   $swatches-Oak_60-spacing:  $swatches-Oak_60-spacing, 
+   $swatches-Oak_60-repeat:   $swatches-Oak_60-repeat,
+ 
+   $swatches-SmokeGray_60-position: $swatches-SmokeGray_60-position, 
+   $swatches-SmokeGray_60-spacing:  $swatches-SmokeGray_60-spacing, 
+   $swatches-SmokeGray_60-repeat:   $swatches-SmokeGray_60-repeat,
+ 
+   $swatches-Tarrragon_60-position: $swatches-Tarrragon_60-position, 
+   $swatches-Tarrragon_60-spacing:  $swatches-Tarrragon_60-spacing, 
+   $swatches-Tarrragon_60-repeat:   $swatches-Tarrragon_60-repeat,
+ 
+   $swatches-TaupeTwist_60-position: $swatches-TaupeTwist_60-position, 
+   $swatches-TaupeTwist_60-spacing:  $swatches-TaupeTwist_60-spacing, 
+   $swatches-TaupeTwist_60-repeat:   $swatches-TaupeTwist_60-repeat,
+ 
+   $swatches-WinterGray_60-position: $swatches-WinterGray_60-position, 
+   $swatches-WinterGray_60-spacing:  $swatches-WinterGray_60-spacing, 
+   $swatches-WinterGray_60-repeat:   $swatches-WinterGray_60-repeat,
+ 
+ $layout: $swatches-layout,
+ $cleanup: $swatches-clean-up
+ );
+
+
+// All sprites should extend this class
+// The swatches-sprite mixin will do so for you.
+@if $swatches-inline {
+  #{$swatches-sprite-base-class} {
+    background-image: inline-sprite($swatches-sprites);
+  } 
+} @else {
+  #{$swatches-sprite-base-class} {
+    background: $swatches-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function swatches-sprite-width($name) {
+    $file: sprite_file($swatches-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function swatches-sprite-height($name) {
+    $file: sprite_file($swatches-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin swatches-sprite-dimensions($name) {
+  @include sprite-dimensions($swatches-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin swatches-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($swatches-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin swatches-sprite($name, $dimensions: $swatches-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$swatches-sprite-base-class};
+  @include sprite($swatches-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin swatches-sprites($sprite-names, $dimensions: $swatches-sprite-dimensions, $prefix: sprite-map-name($swatches-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($swatches-sprites, $sprite-names, $swatches-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-swatches-sprites($dimensions: $swatches-sprite-dimensions, $prefix: sprite-map-name($swatches-sprites), $offset-x: 0, $offset-y: 0) {
+  @include swatches-sprites(AntiqueIvory_60 ArchGray_60 DeloreanGray_60 Jamoca_60 LightPewter_60 Malibu_60 Mist_60 Oak_60 SmokeGray_60 Tarrragon_60 TaupeTwist_60 WinterGray_60, $dimensions, $prefix, $offset-x, $offset-y);
+}

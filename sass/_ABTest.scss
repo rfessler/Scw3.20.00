@@ -1,0 +1,25 @@
+//.linkasactionbutton {
+//	@include LinkAsActionButton;
+//}
+
+//.actionbutton-link {
+//	background-color: $color_default-ActionButtonAsLink;
+//	border: solid 1px $color_default-ActionButtonAsLink;
+//	&:hover {
+//		background-color: adjust-hue($color_default-ActionButtonAsLink,-10%);
+//		border: solid 1px adjust-hue($color_default-ActionButtonAsLink,-10%);
+//		text-decoration: none;
+//	}
+//}
+
+
+div[id$=VisualWebSiteOptomizerSwitch_SpecialOffersTable] {
+	display: none;
+}
+
+div[id$=VisualWebSiteOptomizer_SwitchTogglePanel] {
+	display: block;
+}
+
+
+

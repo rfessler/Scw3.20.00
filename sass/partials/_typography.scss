@@ -1,0 +1,183 @@
+/* _typography imported:started */ 
+
+
+.pagetitle {
+	color: $color_pagetitle-caption;
+	text-align: left;	
+	line-height: 2;
+	font: {size: 1.3em;	weight: bold;}	
+}
+
+.containercaption {
+	margin-bottom: 10px;
+	text-align: left;
+	line-height: 2;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: $color-container-title;
+	&.underline {border-bottom: 1px solid $color-container-title;}
+}
+
+.articlecaption {
+	margin-bottom: 5px;
+//	font: {size: 1.2em; weight:bold;}
+	color: $color-lightBlack;
+	text-align: left;
+	#GDOModelDescription & {font-size: 1em;}
+}
+
+.articletext {
+	color: $color-lightBlack;
+	text-align: left;
+}
+
+
+/*.emphasizedcaption {color: $color_pagetitle-caption; font: {size: 1.35em;	weight: bold;}}*/
+
+//.usercontrol,
+//.usercontrol a {font-size: .85em;}
+
+
+
+.articles_0 {
+	.articlecaption {
+		&.small {font-size: 1.0em; padding-top:5px;}
+		color: $color-lightBlack;
+		font: {size: 1.2em;	weight: bold;}
+		#GarageDoorOpenersTriBlock1 & {height: 40px; margin-bottom: 10px;}
+		#GarageDoorOpenersTriBlock2 & {height: 60px; margin-bottom: 10px;}
+	}
+//	.articlecaptionGDO {
+//		color: $color-lightBlack;
+//		font: {size: 1em; weight: bold;}
+//		margin-bottom: 5px;
+//		text-align: left;
+//		}
+
+	.articletext {color: $color-lightBlack; font-size: .9em;}	
+}
+ 
+
+/*.ArticleLink{
+	padding:1px 10px 1px 10px;
+	&:hover {background-color:$info-background_color; cursor:pointer;}
+}*/
+
+.articles_60 {
+	width: 100%;
+	padding-left: 20px;
+	text-align: left;
+	font-size: .9em;
+
+	#ProductTipsAndResources & {height: 85px;}
+
+	height:105px;
+//	font-weight: bold;
+
+	.article {
+		margin: 20px 0 20px 60px; 
+		/*min-height: 60px;*/
+		height: 100%;
+		position: relative;
+		.image {
+			border: 1px solid $color_default-border;
+			background: #FFFFFF;
+			position: absolute;
+			left: -80px;
+			&.two-step {
+				left: -95px;
+				top: -2px;
+				background: none;
+				border: none;
+			}		
+		}
+		.image > img {margin: 5px;}
+		.buttonaslink {padding-left: 0; &.padding10 {padding-top:10px;} /*margin-top: 20px;*/}	
+		
+		/*&.first:hover, &.last:hover, &.middle:hover { background-color:$info-background_color; cursor:pointer;}			*/
+	}
+
+	.articleheader {
+		font-weight: bold; min-height:15px;
+	}
+
+	&.subarticle {
+		height: 60px; 
+		margin-bottom:30px; 
+		font-size:1em;
+		.articletext {
+			margin-left: 30px;
+			font-size: 1em;
+		}
+	} 
+
+	&.ArticleLink, &.ArticleLinkNew {	
+		padding:1px 10px 1px 10px;
+		&:hover {background-color:$info-background_color; cursor:pointer;}
+	}
+}
+
+.articles_70 {
+	width: 100%;
+	padding-left: 20px;
+	text-align: left;
+	font-size: .9em;
+
+	#ProductTipsAndResources & {height: 85px;}
+
+	height:105px;
+//	font-weight: bold;
+
+	.article {
+		//margin: 20px 0 20px 60px; 
+		/*min-height: 60px;*/
+		margin-top: 5px;
+		margin-left: 75px;
+		height: 100%;
+		position: relative;
+		.image {
+			border: 1px solid $color_default-border;
+			background: #FFFFFF;
+			position: absolute;
+			left: -80px;		
+		}
+		.image > img {margin: 5px;}
+		.buttonaslink {padding-left: 0; &.padding10 {padding-top:10px;} /*margin-top: 20px;*/}	
+		//&.last {margin-top: 20px;}
+		/*&.first:hover, &.last:hover, &.middle:hover { background-color:$info-background_color; cursor:pointer;}			*/
+	}
+	&.last {margin-top: 20px;}
+	.articleheader {
+		font-weight: bold; min-height:15px;
+	}
+
+	&.subarticle {height: 60px; margin-bottom:30px; font-size:1em;} 
+
+	&.ArticleLink, &.ArticleLinkNew {	
+		padding:1px 10px 1px 10px;
+		&:hover {background-color:$info-background_color; cursor:pointer;}
+	}
+}
+
+a {
+	.footer & { color: $color-white; &:hover {color: $color_default-ButtonAsLink-hover; cursor:pointer;}}
+	.navHeader & {color: $color_background-dark;}
+	.navlink & {
+		&:hover {color:$color_default-ButtonAsLink-hover; cursor:pointer;}
+		color: $color_background-dark; 
+	}
+	.navlink.currentpage & {color:$ActiveIndicator;}
+
+	color: $color_default-black;
+	text-decoration: none;
+}
+
+.Social-youtube-icon.right.buttonaslink > a {
+	 color: $color_default-ButtonAsLink;
+}
+.Social-youtube-icon.right.buttonaslink:hover > a {
+	color: $color_default-ButtonAsLink-hover;
+	text-decoration: underline;
+}
+
+/* _typography imported:finished */ 

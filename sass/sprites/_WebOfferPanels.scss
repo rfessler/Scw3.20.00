@@ -1,0 +1,172 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$WebOfferPanels-sprite-base-class: ".WebOfferPanels-sprite" !default;
+$WebOfferPanels-sprite-dimensions: false !default;
+$WebOfferPanels-position: 0% !default;
+$WebOfferPanels-spacing: 0 !default;
+$WebOfferPanels-repeat: no-repeat !default;
+$WebOfferPanels-prefix: '' !default;
+$WebOfferPanels-clean-up: true !default;
+$WebOfferPanels-layout:vertical !default;
+$WebOfferPanels-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $WebOfferPanels-CARPET31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-CARPET31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-CARPET31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-DUCT31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-DUCT31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-DUCT31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-FeaturedOffer_187-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-FeaturedOffer_187-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-FeaturedOffer_187-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-ProductBannerLighter_500x1-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-ProductBannerLighter_500x1-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-ProductBannerLighter_500x1-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-ProductBannnerDarker_500x1-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-ProductBannnerDarker_500x1-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-ProductBannnerDarker_500x1-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-TILE31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-TILE31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-TILE31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-UPHOLSTERY31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-UPHOLSTERY31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-UPHOLSTERY31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-WATER31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-WATER31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-WATER31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-WOOD31-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-WOOD31-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-WOOD31-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-minus-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-minus-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-minus-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-plus-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-plus-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-plus-repeat:   $WebOfferPanels-repeat !default;
+ 
+   $WebOfferPanels-puzzlepieces-position: $WebOfferPanels-position !default;
+   $WebOfferPanels-puzzlepieces-spacing:  $WebOfferPanels-spacing !default;
+   $WebOfferPanels-puzzlepieces-repeat:   $WebOfferPanels-repeat !default;
+ 
+
+ $WebOfferPanels-sprites: sprite-map("WebOfferPanels/*.png",
+ 
+   $WebOfferPanels-CARPET31-position: $WebOfferPanels-CARPET31-position, 
+   $WebOfferPanels-CARPET31-spacing:  $WebOfferPanels-CARPET31-spacing, 
+   $WebOfferPanels-CARPET31-repeat:   $WebOfferPanels-CARPET31-repeat,
+ 
+   $WebOfferPanels-DUCT31-position: $WebOfferPanels-DUCT31-position, 
+   $WebOfferPanels-DUCT31-spacing:  $WebOfferPanels-DUCT31-spacing, 
+   $WebOfferPanels-DUCT31-repeat:   $WebOfferPanels-DUCT31-repeat,
+ 
+   $WebOfferPanels-FeaturedOffer_187-position: $WebOfferPanels-FeaturedOffer_187-position, 
+   $WebOfferPanels-FeaturedOffer_187-spacing:  $WebOfferPanels-FeaturedOffer_187-spacing, 
+   $WebOfferPanels-FeaturedOffer_187-repeat:   $WebOfferPanels-FeaturedOffer_187-repeat,
+ 
+   $WebOfferPanels-ProductBannerLighter_500x1-position: $WebOfferPanels-ProductBannerLighter_500x1-position, 
+   $WebOfferPanels-ProductBannerLighter_500x1-spacing:  $WebOfferPanels-ProductBannerLighter_500x1-spacing, 
+   $WebOfferPanels-ProductBannerLighter_500x1-repeat:   $WebOfferPanels-ProductBannerLighter_500x1-repeat,
+ 
+   $WebOfferPanels-ProductBannnerDarker_500x1-position: $WebOfferPanels-ProductBannnerDarker_500x1-position, 
+   $WebOfferPanels-ProductBannnerDarker_500x1-spacing:  $WebOfferPanels-ProductBannnerDarker_500x1-spacing, 
+   $WebOfferPanels-ProductBannnerDarker_500x1-repeat:   $WebOfferPanels-ProductBannnerDarker_500x1-repeat,
+ 
+   $WebOfferPanels-TILE31-position: $WebOfferPanels-TILE31-position, 
+   $WebOfferPanels-TILE31-spacing:  $WebOfferPanels-TILE31-spacing, 
+   $WebOfferPanels-TILE31-repeat:   $WebOfferPanels-TILE31-repeat,
+ 
+   $WebOfferPanels-UPHOLSTERY31-position: $WebOfferPanels-UPHOLSTERY31-position, 
+   $WebOfferPanels-UPHOLSTERY31-spacing:  $WebOfferPanels-UPHOLSTERY31-spacing, 
+   $WebOfferPanels-UPHOLSTERY31-repeat:   $WebOfferPanels-UPHOLSTERY31-repeat,
+ 
+   $WebOfferPanels-WATER31-position: $WebOfferPanels-WATER31-position, 
+   $WebOfferPanels-WATER31-spacing:  $WebOfferPanels-WATER31-spacing, 
+   $WebOfferPanels-WATER31-repeat:   $WebOfferPanels-WATER31-repeat,
+ 
+   $WebOfferPanels-WOOD31-position: $WebOfferPanels-WOOD31-position, 
+   $WebOfferPanels-WOOD31-spacing:  $WebOfferPanels-WOOD31-spacing, 
+   $WebOfferPanels-WOOD31-repeat:   $WebOfferPanels-WOOD31-repeat,
+ 
+   $WebOfferPanels-minus-position: $WebOfferPanels-minus-position, 
+   $WebOfferPanels-minus-spacing:  $WebOfferPanels-minus-spacing, 
+   $WebOfferPanels-minus-repeat:   $WebOfferPanels-minus-repeat,
+ 
+   $WebOfferPanels-plus-position: $WebOfferPanels-plus-position, 
+   $WebOfferPanels-plus-spacing:  $WebOfferPanels-plus-spacing, 
+   $WebOfferPanels-plus-repeat:   $WebOfferPanels-plus-repeat,
+ 
+   $WebOfferPanels-puzzlepieces-position: $WebOfferPanels-puzzlepieces-position, 
+   $WebOfferPanels-puzzlepieces-spacing:  $WebOfferPanels-puzzlepieces-spacing, 
+   $WebOfferPanels-puzzlepieces-repeat:   $WebOfferPanels-puzzlepieces-repeat,
+ 
+ $layout: $WebOfferPanels-layout,
+ $cleanup: $WebOfferPanels-clean-up
+ );
+
+
+// All sprites should extend this class
+// The WebOfferPanels-sprite mixin will do so for you.
+@if $WebOfferPanels-inline {
+  #{$WebOfferPanels-sprite-base-class} {
+    background-image: inline-sprite($WebOfferPanels-sprites);
+  } 
+} @else {
+  #{$WebOfferPanels-sprite-base-class} {
+    background: $WebOfferPanels-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function WebOfferPanels-sprite-width($name) {
+    $file: sprite_file($WebOfferPanels-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function WebOfferPanels-sprite-height($name) {
+    $file: sprite_file($WebOfferPanels-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin WebOfferPanels-sprite-dimensions($name) {
+  @include sprite-dimensions($WebOfferPanels-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin WebOfferPanels-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($WebOfferPanels-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin WebOfferPanels-sprite($name, $dimensions: $WebOfferPanels-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$WebOfferPanels-sprite-base-class};
+  @include sprite($WebOfferPanels-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin WebOfferPanels-sprites($sprite-names, $dimensions: $WebOfferPanels-sprite-dimensions, $prefix: sprite-map-name($WebOfferPanels-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($WebOfferPanels-sprites, $sprite-names, $WebOfferPanels-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-WebOfferPanels-sprites($dimensions: $WebOfferPanels-sprite-dimensions, $prefix: sprite-map-name($WebOfferPanels-sprites), $offset-x: 0, $offset-y: 0) {
+  @include WebOfferPanels-sprites(CARPET31 DUCT31 FeaturedOffer_187 ProductBannerLighter_500x1 ProductBannnerDarker_500x1 TILE31 UPHOLSTERY31 WATER31 WOOD31 minus plus puzzlepieces, $dimensions, $prefix, $offset-x, $offset-y);
+}

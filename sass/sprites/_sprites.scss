@@ -1,0 +1,108 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$sprites-sprite-base-class: ".sprites-sprite" !default;
+$sprites-sprite-dimensions: false !default;
+$sprites-position: 0% !default;
+$sprites-spacing: 0 !default;
+$sprites-repeat: no-repeat !default;
+$sprites-prefix: '' !default;
+$sprites-clean-up: true !default;
+$sprites-layout:vertical !default;
+$sprites-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $sprites-Social-sc162c77ae4-position: $sprites-position !default;
+   $sprites-Social-sc162c77ae4-spacing:  $sprites-spacing !default;
+   $sprites-Social-sc162c77ae4-repeat:   $sprites-repeat !default;
+ 
+   $sprites-misc-sb0d75c2d2a-position: $sprites-position !default;
+   $sprites-misc-sb0d75c2d2a-spacing:  $sprites-spacing !default;
+   $sprites-misc-sb0d75c2d2a-repeat:   $sprites-repeat !default;
+ 
+   $sprites-swatches-s170698e9db-position: $sprites-position !default;
+   $sprites-swatches-s170698e9db-spacing:  $sprites-spacing !default;
+   $sprites-swatches-s170698e9db-repeat:   $sprites-repeat !default;
+ 
+   $sprites-system-s5804359c98-position: $sprites-position !default;
+   $sprites-system-s5804359c98-spacing:  $sprites-spacing !default;
+   $sprites-system-s5804359c98-repeat:   $sprites-repeat !default;
+ 
+
+ $sprites-sprites: sprite-map("sprites/*.png",
+ 
+   $sprites-Social-sc162c77ae4-position: $sprites-Social-sc162c77ae4-position, 
+   $sprites-Social-sc162c77ae4-spacing:  $sprites-Social-sc162c77ae4-spacing, 
+   $sprites-Social-sc162c77ae4-repeat:   $sprites-Social-sc162c77ae4-repeat,
+ 
+   $sprites-misc-sb0d75c2d2a-position: $sprites-misc-sb0d75c2d2a-position, 
+   $sprites-misc-sb0d75c2d2a-spacing:  $sprites-misc-sb0d75c2d2a-spacing, 
+   $sprites-misc-sb0d75c2d2a-repeat:   $sprites-misc-sb0d75c2d2a-repeat,
+ 
+   $sprites-swatches-s170698e9db-position: $sprites-swatches-s170698e9db-position, 
+   $sprites-swatches-s170698e9db-spacing:  $sprites-swatches-s170698e9db-spacing, 
+   $sprites-swatches-s170698e9db-repeat:   $sprites-swatches-s170698e9db-repeat,
+ 
+   $sprites-system-s5804359c98-position: $sprites-system-s5804359c98-position, 
+   $sprites-system-s5804359c98-spacing:  $sprites-system-s5804359c98-spacing, 
+   $sprites-system-s5804359c98-repeat:   $sprites-system-s5804359c98-repeat,
+ 
+ $layout: $sprites-layout,
+ $cleanup: $sprites-clean-up
+ );
+
+
+// All sprites should extend this class
+// The sprites-sprite mixin will do so for you.
+@if $sprites-inline {
+  #{$sprites-sprite-base-class} {
+    background-image: inline-sprite($sprites-sprites);
+  } 
+} @else {
+  #{$sprites-sprite-base-class} {
+    background: $sprites-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function sprites-sprite-width($name) {
+    $file: sprite_file($sprites-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function sprites-sprite-height($name) {
+    $file: sprite_file($sprites-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin sprites-sprite-dimensions($name) {
+  @include sprite-dimensions($sprites-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin sprites-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($sprites-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin sprites-sprite($name, $dimensions: $sprites-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$sprites-sprite-base-class};
+  @include sprite($sprites-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin sprites-sprites($sprite-names, $dimensions: $sprites-sprite-dimensions, $prefix: sprite-map-name($sprites-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($sprites-sprites, $sprite-names, $sprites-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-sprites-sprites($dimensions: $sprites-sprite-dimensions, $prefix: sprite-map-name($sprites-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites-sprites(Social-sc162c77ae4 misc-sb0d75c2d2a swatches-s170698e9db system-s5804359c98, $dimensions, $prefix, $offset-x, $offset-y);
+}

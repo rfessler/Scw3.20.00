@@ -1,0 +1,24 @@
+
+/* jQuery custom validateInput plugin 1.0.0 */
+#errordiv {
+    display: none; 
+    position: absolute; 
+    font-size: 1.3em; 
+    border: 1px solid  #f00; 
+    background-color: #fee; 
+    overflow: visible; 
+    padding: 3px;   
+    width:100px;
+    text-align: center;
+    }
+    
+#errordiv span {font-size:inherit; padding:0;}  
+
+.validation-icon-img {border: 0 none;}
+.validation-error-span {font-weight: bold; text-decoration: underline; }
+
+.field-validation-error {padding: 0; }
+.field-validation-error-border {border: 1px solid #f00; }
+.field-validation-error-highlight {border: 1px solid #f00; background-color: #fee; }
+.field-validation-error-red-font {color: #f00;}
+.field-validation-label {color: $color_background-footer; font-weight: normal;}

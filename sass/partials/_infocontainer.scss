@@ -1,0 +1,59 @@
+/* infocontainer imported:started */ 
+
+
+
+@mixin infoContainer($bgcolor:$info-background_color) {
+	background-color: $bgcolor;
+}
+
+
+@mixin infoBorder($width: $info-border_width, 
+	$color: $info-border_color) {
+	border-left: $width solid $color;
+	padding: 15px 10px;
+}
+
+@mixin infoarrow {
+	content:"";
+	@include arrow-right(7px, $info-border_color, 20px, 0);
+}
+
+
+
+
+
+.infoBlock {@include informationalBlock;}
+
+.arrow-right {
+	@include arrow-right(7px, $color_background-seperator);
+	position: absolute; 
+	top: 20px;		
+	left: 0;		
+}
+
+
+
+.groupcontainer {
+	&.info {
+		@include infoContainer;
+		height: auto;	
+		overflow: auto;	
+		&.infoborder {@include infoBorder;}
+		&.infoarrow:after {@include infoarrow;}
+	}
+}
+
+//.groupcontainerGDO {
+//	@extend .groupcontainer;
+//	//@extend .groupcontainer.info;
+//	margin-top: 50px;
+//}
+
+.infoarticle {
+	margin-left:10px;
+	@extend .articles_0;
+}
+
+
+/* infocontainer imported:started */ 
+/* infocontainer imported:finished */ 

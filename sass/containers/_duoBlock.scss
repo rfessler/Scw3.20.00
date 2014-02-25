@@ -1,0 +1,265 @@
+/* _duoBlock imported:started */ 
+
+$blocks-duo: 2;
+
+$columns_duo-pagecontent-2: 2 !default;
+$columns_duo_pagecontent-4: 4 !default;
+$columns_duo_pagecontent-5: 5 !default;
+$columns_duo-pagecontent-6: 6 !default;
+$columns_duo_pagecontent-8: 8 !default;
+$columns_duo_pagecontent-10: 10 !default;
+$columns_duo_pagecontent-12: 12 !default;
+$columns_duo_pagecontent-13: 13 !default;
+$columns_duo_pagecontent-14: 14 !default;
+$columns_duo_pagecontent-16: 16 !default;
+
+$width-duo-fullpagecontent: round($_columns / $blocks-duo) !default;
+$width-duo-shortpagecontent: round($columns-shortpagecontent / $blocks-duo) !default;
+
+.fullpagecontent {
+	.duoBlock-2 {
+		.subcontainer {	
+			&.leftside {@include column(2); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 2); @include omega;}
+		}
+		
+	}
+
+	.duoBlock-3 {
+		.subcontainer {	
+			&.leftside {@include column(3); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 3); @include omega;}
+		}
+		
+	}
+	.duoBlock-4 {
+		.subcontainer {	
+			&.leftside {@include column(4); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 4); @include omega;}										
+		}
+		
+	}
+	.duoBlock-5 {
+		.subcontainer {	
+			&.leftside {
+				@include column(5); 
+				@include alpha;	
+			}
+			&.rightside {@include column($columns-fullpage - 5, 20px); @include omega;}
+		}
+		
+	}
+	.duoBlock-6 {
+		.subcontainer {	
+//			@include container($columns-fullpage);	
+			&.leftside {@include column(6); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 6, 20px); @include omega;}
+		}
+		
+	}
+	.duoBlock-7 {
+		.subcontainer {	
+			&.leftside {@include column(7); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 7); @include omega;}
+		}
+		
+	}
+	.duoBlock-8 {
+		.subcontainer {	
+			&.leftside {@include column(8); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 8); @include omega;}
+		}
+		
+	}
+	.duoBlock-9 {
+		.subcontainer {	
+			&.leftside {@include column(9); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 9); @include omega;}
+		}
+		
+	}
+	.duoBlock-10 {
+		.subcontainer {	
+			&.leftside {@include column(10, 6px); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 10); @include omega;}
+		}
+		
+	}
+	.duoBlock-11 {
+		.subcontainer {	
+			&.leftside {@include column(11); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 11); @include omega;}
+		}
+		
+	}
+	.duoBlock-12 {
+		.subcontainer {	
+			&.leftside {@include column(12); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 12); @include omega;}
+		}
+		
+	}
+	.duoBlock-13 {
+		.subcontainer {	
+			&.leftside {@include column(13); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 13); @include omega;}
+		}
+	}
+	.duoBlock-14 {
+		.subcontainer {	
+			&.leftside {@include column(14); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 14); @include omega;}
+		}
+		
+	}
+	.duoBlock-15 {
+		.subcontainer {	
+			&.leftside {@include column(15); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 15); @include omega;}
+		}
+		
+	}
+	.duoBlock-16 {
+		.subcontainer {	
+			&.leftside {@include column(16); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 16); @include omega;}
+		}
+		
+	}
+	.duoBlock-17 {
+		.subcontainer {	
+			&.leftside {@include column(17); @include alpha;}
+			&.rightside {@include column($columns-fullpage - 17); @include omega;}
+		}
+		
+	}
+
+}
+
+.shortpagecontent {
+	.duoBlock-2 {
+		.subcontainer {	
+			&.leftside {@include column(2); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 2); @include omega;}
+		}
+		
+	}
+
+	.duoBlock-3 {
+		.subcontainer {	
+			&.leftside {@include column(3); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 3); @include omega;}
+		}
+		
+	}
+	.duoBlock-4 {
+		.subcontainer {	
+			&.leftside {@include column(4); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 4, 12px); @include omega;}										
+		}
+		
+	}
+	.duoBlock-5 {
+		.subcontainer {	
+			&.leftside {@include column(5); @include alpha;}
+			&.rightside {
+				@include column($columns-shortpage - 5); 
+				@include omega;
+			}
+		}
+		
+	}
+	.duoBlock-6 {
+		.subcontainer {	
+//			@include container($columns-shortpage);	
+			&.leftside {@include column(6); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 6, 20px); @include omega;}
+		}
+		
+	}
+	.duoBlock-7 {
+		.subcontainer {	
+			&.leftside {@include column(7); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 7); @include omega;}
+		}
+		
+	}
+	.duoBlock-8 {
+		.subcontainer {	
+			&.leftside {@include column(8); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 8); @include omega;}
+		}
+		
+	}
+	.duoBlock-9 {
+		.subcontainer {	
+			&.leftside {@include column(9); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 9); @include omega;}
+		}
+		
+	}
+	.duoBlock-10 {
+		.subcontainer {	
+			&.leftside {
+				@include column(10, 12px); 
+				@include alpha;
+				&.zoomfix { @include omega;}
+			}
+			&.rightside {@include column($columns-shortpage - 10); @include omega;}
+		}
+		
+	}
+	.duoBlock-11 {
+		.subcontainer {	
+			&.leftside {@include column(11); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 11); @include omega;}
+		}
+		
+	}
+	.duoBlock-12 {
+		.subcontainer {	
+			&.leftside {@include column(12); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 12); @include omega;}
+		}
+		
+	}
+	.duoBlock-13 {
+		.subcontainer {	
+			&.leftside {@include column(13); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 13); @include omega;}
+		}
+		
+	}
+	.duoBlock-14 {
+		.subcontainer {	
+			&.leftside {@include column(14); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 14); @include omega;}
+		}
+		
+	}
+	.duoBlock-15 {
+		.subcontainer {	
+			&.leftside {@include column(15); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 15); @include omega;}
+		}
+		
+	}
+	.duoBlock-16 {
+		.subcontainer {	
+			&.leftside {@include column(16); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 16); @include omega;}
+		}
+		
+	}
+	.duoBlock-17 {
+		.subcontainer {	
+			&.leftside {@include column(17); @include alpha;}
+			&.rightside {@include column($columns-shortpage - 17); @include omega;}
+		}
+		
+	}
+}
+
+
+
+/* _duoBlock imported:finished */ 

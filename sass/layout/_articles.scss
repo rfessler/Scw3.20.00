@@ -1,0 +1,36 @@
+/* _articles imported:started */
+
+
+$article_image_width_columns: 5;
+
+#readTheArticle {
+    float: left;
+    margin-left: 40px;
+}
+
+#articlesContainer {
+	@include container;
+//	background-color: Orange;
+	@include container;
+	@extend .newContainer;
+	height: $container_height-article;
+	padding: $default_padding;
+	background-color: $color_background-articles;
+	overflow: hidden;
+
+	div.article-image {
+		@include column($article_image_width_columns);
+		margin: 0;	
+	}
+}
+
+
+
+//.article-text {	
+//	@include column($_columns - $article_image_width_columns, 60px);	
+//	margin: 0 0 0 40px;
+//}
+
+
+
+/* _articles imported:finished */

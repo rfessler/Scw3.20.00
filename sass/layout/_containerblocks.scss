@@ -1,0 +1,28 @@
+.mobile .wrapper {padding-left: 10px; width: 999px;}
+.wrapper { @include wrapper; }
+
+.wrapper {
+	border-top: 1px solid $color_spacer-body;
+	padding-top: 10px;
+	margin-top: 1px;
+}
+
+
+#FullPageContent {
+	@include container($columns-fullpagecontent);
+	@include alphaomega;
+}
+
+
+#ShortPageContent {
+	@include container($columns-shortpagecontent);
+	@include alphaomega;
+}
+
+.sectionmargin {
+	padding-top: 0;	
+	.fullpagecontent & {margin-top: 30px;}
+	.shortpagecontent & {margin-top: 30px;}	
+	&.defaultBottomContainer {margin-top: 0px;}
+}
+

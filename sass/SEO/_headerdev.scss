@@ -1,0 +1,41 @@
+
+
+
+@mixin highlightHeaderTags($color) {	
+	@extend %highLighterHeaderTagColor;
+	background-color: $color;	
+}
+
+@if $updateToHeaderTags == true {
+/* _headerdev loading:started */ 
+
+
+
+
+$ERR: #f00;
+$H1: darken(#f00, 10%);
+$H2: #FFA8A8;
+$H3: #FA7C00;
+$H4: #FFD3A8;
+
+	span.h1, h1, h1 a { @include highlightHeaderTags($H1); }
+	span.h2, h2, h2 a { @include highlightHeaderTags($H2); }
+	span.h3, h3
+	{
+		@include highlightHeaderTags($H3);
+		a {@extend %highLighterHeaderTagColor;}
+	}
+	span.h4, h4 { @include highlightHeaderTags($H4); } 
+
+	.remove-this {background-color: red;}
+	
+
+
+
+
+	/* _headerdev loading:finished */ 
+}
+
+
+
+

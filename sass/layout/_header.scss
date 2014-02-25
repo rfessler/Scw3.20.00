@@ -1,0 +1,277 @@
+/* _header imported:started */ 
+
+.pageHeader {
+    border-bottom: 1px solid $seperatorBackgroundColor;
+	background-color: white;
+    //margin-bottom: 40px;
+}
+
+.pageTopBanner {
+	width: 100%;
+	height: $top_bar_container_height;
+	background-color: $footerBackgroundColor;
+	color:$color-white;
+}
+
+.pageWrapper {
+	width: 100%;
+	/*background-color: #f9f9f9;*/
+}
+
+.mobile .pageTopNavigator {padding-left:10px; width:999px; background-color:white; } 
+.pageTopNavigator {
+	@include wrapper;
+	height: $top_navigation_container_height;
+	border-bottom: 1px solid transparent;
+}
+
+// Top Banner 
+.topBannerContainer {
+	@include wrapper;
+	height: $top_bar_container_height; 
+	line-height: $top_bar_container_height;
+
+	.linktooffers {
+		@include column(13);
+		text-align: right;
+
+		a { color:$color-white;}
+	}
+
+	.phonenumber {
+		@include column($_columns - 13);
+		text-align: center;
+		background-color: $footerBackgroundColor;
+		color: $color-white; // $footerBackgroundColor;
+		border-right: 1px solid $footerBackgroundColor;
+		font: {
+			size: 1.4em;
+			weight: bold;
+		}
+	}
+}
+
+/*window container for top navigation section*/
+.topNavigationContainer {
+	@include container;
+
+	height: $top_navigation_container_height;
+
+	div {
+		@include column($_columns / 5,-6px );
+		border-bottom: 2px solid transparent;				
+		height: inherit;
+		vertical-align: middle;
+		margin: auto 2px;
+	}
+}
+
+/*top navigation division sections*/
+.topnav {	
+	text-align:left;
+	padding: 0 5px;
+	img:hover {@include hoverBlock(transparent);}
+
+	&:active {@include activeBlockBorder(2px, $ActiveIndicator);}
+	&:normal {}
+
+	&.OrangeBottomBorder {
+		@include activeBlockBottomBorder(2px, $ActiveIndicator);
+		div div.navText {
+			color: $black;
+		}
+	}
+
+
+	/*top navigation image section*/
+	&.left {
+		@include alpha;
+		padding-left: 0;
+	}
+
+	/*top navigation emergency section*/
+	&.right { 
+		@include omega; 
+	//	padding-right: 0;
+		&:hover {
+			@include hoverBlock($hoverColor);
+		}
+		div div.navHeader { color: $ActiveIndicator;}
+	}
+}
+
+
+
+/*top navigation section content*/
+.garageDoor {
+	margin: 10 auto;	
+	.navHeader {
+		@include NavHeader($footerBackgroundColor);
+	}
+	.navText {
+		@include NavText;
+		width: 180px;
+	}
+	.navImage {
+		@include NavImage;
+	}
+}
+
+/*top navigation middle sections for Garage Doors/Openers/Repair*/
+.middle1, .middle2, .middle3, .middle4 {
+	&:hover {@include hoverBlock($hoverColor);}
+}
+/* _navigation imported:finished */
+
+/*Emergency fancybox classes */
+.emergencybox {
+	@include container(12,10px);
+
+	/*border: 1px solid $emergencyRed;*/
+
+	.customerheader {
+		//@include column(4);
+		//margin-top: 10px;
+		margin-bottom: 10px;
+		float:left;
+
+		&:hover { }
+		&.first {
+			@include alpha;			
+			text-align:left;
+			.image {@include misc-sprite(emergency); height: 35px; width: 42px;}
+			margin-left: 15px;
+			padding-top: 15px;
+		}
+		&.last {
+			@include omega;			
+			text-align: right;
+			.image {@include misc-sprite(emergency); height: 35px; width:42px;}
+			padding-top: 15px;
+		}
+		&.middle {
+			color: red;
+			text-align:center;
+			font-size:1.2em;
+			font-weight:bold;
+			width: 83%;
+			padding-top:8px;
+
+			&.estimateheadersetting {
+				text-align:center;
+				width:100%;
+				display:block;
+			}
+		}
+
+		&.seperator { 
+			@include seperator($color_background-specialoffers, 
+			$height: 1px, 
+			$width: 100%); 
+			clear:both;
+			margin: 0px 0px 0px 0px;
+		}
+	}
+
+	@extend .customerform;
+
+}
+   
+.EmergencyButton {
+	float:right;
+	@extend .button-link;
+}
+
+.chrome .customerform {
+	.twocolumn { .columnbox, .columncitystatezipbox { .add-on {margin-left: 2px; margin-top: -2px;} }	}
+	.onecolumn { .columnbox .add-on {margin-left:2px; margin-top: -2px; } }
+}
+
+.webkit .customerform {
+	.twocolumn { .columnbox, .columncitystatezipbox { .add-on {margin-left: 2px; margin-top: 1.5px;} }	}
+	.onecolumn { .columnbox .add-on {margin-left:2px; margin-top: 1.5px; } }
+}
+
+.webkit .customerform .twocolumn .columncitystatezipbox {
+	&.last { width: 31.5%;}
+} 
+.customerform {
+	@include column(12, 2);
+	color:$color-black;
+	margin: 5px;
+	padding: 5px; 
+	
+
+	clear:both;
+
+	div.columnbox.add-on { margin-left:3px;}
+
+	.twocolumn {			
+		.columnbox {
+			float: left;
+			&.first { width: 49%; margin-right: 1%;}
+			&.last { width: 49%; margin-left: 1%}
+			label input {
+				border: none;
+				width: 85%;
+				&.ext {width: 25%;}
+				&.phone {width:55%;}
+			}
+			.add-on {margin-left:2px; margin-top:-4px;}
+
+		}
+
+		.columncitystatezipbox {
+			float: left;
+			&.first { width: 49%; margin-right: 1%;}
+			&.middle { width: 16%; margin-right: 2%; margin-left: 1%;
+				label input {width: 40%;}
+			}
+			&.last { width: 31%; 
+				input {width: 70%;}
+			}
+			label input {border: none; width:85%;}
+			.add-on {margin-left:2px; margin-top:-4px;}
+		}
+	}
+
+	.onecolumn {
+		.columnbox {
+			float: left;
+			&.first { width: 100%; }
+			label input {border: none; width:92%;}
+			textarea {border: none; resize:none; width: 90%;}
+			&.commentbox { 
+				.add-on {margin-top:2px; margin-left:2px;}
+				 height:auto;
+			}
+			.add-on {margin-left:2px; margin-top:-4px;}
+		}
+	}
+
+	.instructiontext { 
+		clear: both;
+		padding-bottom:10px;
+		/*padding-bottom: 20px;*/
+		&.large { @include FormHeaderLarge;	font-type: bold; }
+		&.backgroundlightyellow { background-color: $warningYellow; padding-top:10px; padding-bottom:10px;}
+	}
+
+	.checkText {
+		@include RequiredText;
+		float:right;	
+		margin: 3px 15px 6px 0;		
+		height: 20px;
+	}
+
+	.seperator { 
+		@include seperator($color_background-specialoffers, 
+		$height: 1px, 
+		$width: 100%); 
+		clear:both;
+		margin: 0px 0px 10px 0px;
+	}
+
+}
+
+.clearboth {@include clearfix;}

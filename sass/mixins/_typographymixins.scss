@@ -1,0 +1,89 @@
+/* _typographymixins imported:started */ 
+
+$caption-pagetitle: 0;
+$caption-article: 1;
+$caption-container: 2;
+$caption-above: 3;
+$caption-on_right: 4;
+$caption-on_left: 5;
+$caption-underneath: 6;
+
+$article-text: 7;
+
+
+@mixin text($type: $caption-above, 
+	$textColor: $color_default-black, 
+	$fontSize:1em, $align:left, 
+	$underline:false) {
+	
+	font-size: $fontSize;
+	color: $textColor;
+	text-align: $align;
+
+	@if $type == $article-text {
+		margin: 5px 0 10px;
+		font: {size: 1em;	weight: normal;}		
+		text-align: $align;
+	}
+	@else { 
+		color: $textColor;
+		font-size: $fontSize;
+		text-align: $align;	
+	}
+
+}
+
+
+@mixin caption($type: $caption-above, 
+	$textColor: $color_default-black, 
+	$fontSize:1em, $align:left, 
+	$underline:false) 
+	{
+
+	font-size: $fontSize;
+	color: $textColor;
+	text-align: $align;
+	
+	@if $underline {border-bottom: 1px solid $textColor;}
+	
+	@if $type == $caption-pagetitle {
+		margin: $default-padding 0 10px 0;
+		font: {size: 1.3em; weight: bold;}
+		color: $color_caption-pagetitle;
+		text-align: $align;
+		line-height: 2;
+	}
+	@else if $type == $caption-article {
+		margin: 5px 0 10px 0;
+		font: {size: 1.1em;	weight: bold;}		
+		text-align: $align;
+	}
+	@else if $type == $caption-container {		
+		padding: 0 0 5px 0;
+		margin: 0 0 10px 0;
+		font: {size: 1.2em;	weight: bold;}		
+		text-align: $align;
+	}
+	@else if $type == $caption-on_left {
+		margin-left: 5px;
+		font: {size: $fontSize; weight: bold;}				
+	}
+	@else if $type == $caption-on_right { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else if $type == $caption-underneath { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else if $type == $caption-above { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else { 
+		color: $textColor;
+		font-size: $fontSize;
+		text-align: $align;	
+	}
+}
+
+
+
+/* _typographymixins imported:finished */ 

@@ -1,0 +1,33 @@
+//* _font imported:started */ 
+
+
+
+// Convert px to em
+@function pxtoem($target, $context: $base-font-size){
+		@if $target == 0 { @return 0 }
+		@return ($target/$context)+0em;
+}
+// Convert em to px
+@function emtopx($target, $context: $base-font-size){
+		@if $target == 0 { @return 0 }
+		@return ($target*$context)+0px;
+}
+
+
+
+@mixin font-size($val) {
+	font-size: ($val * 20) + px;
+	font-size: $val + em;
+}
+
+
+
+
+
+
+
+// Exp Usage:
+//h1 {font-size: pxtoem(21px, 15px); // Outputs 1.4em}
+
+
+/*     _font Loaded */

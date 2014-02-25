@@ -1,0 +1,93 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$Social-sprite-base-class: ".Social-sprite" !default;
+$Social-sprite-dimensions: false !default;
+$Social-position: 0% !default;
+$Social-spacing: 0 !default;
+$Social-repeat: no-repeat !default;
+$Social-prefix: '' !default;
+$Social-clean-up: true !default;
+$Social-layout:vertical !default;
+$Social-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $Social-facebook-icon-position: $Social-position !default;
+   $Social-facebook-icon-spacing:  $Social-spacing !default;
+   $Social-facebook-icon-repeat:   $Social-repeat !default;
+ 
+   $Social-youtube-icon-position: $Social-position !default;
+   $Social-youtube-icon-spacing:  $Social-spacing !default;
+   $Social-youtube-icon-repeat:   $Social-repeat !default;
+ 
+
+
+ $Social-sprites: sprite-map("Social/*.png",
+ 
+   $Social-facebook-icon-position: $Social-facebook-icon-position, 
+   $Social-facebook-icon-spacing:  $Social-facebook-icon-spacing, 
+   $Social-facebook-icon-repeat:   $Social-facebook-icon-repeat,
+ 
+   $Social-youtube-icon-position: $Social-youtube-icon-position, 
+   $Social-youtube-icon-spacing:  $Social-youtube-icon-spacing, 
+   $Social-youtube-icon-repeat:   $Social-youtube-icon-repeat,
+ 
+ $layout: $Social-layout,
+ $cleanup: $Social-clean-up
+ );
+
+
+// All sprites should extend this class
+// The Social-sprite mixin will do so for you.
+@if $Social-inline {
+  #{$Social-sprite-base-class} {
+    background-image: inline-sprite($Social-sprites);
+  } 
+} @else {
+  #{$Social-sprite-base-class} {
+    background: $Social-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function Social-sprite-width($name) {
+    $file: sprite_file($Social-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function Social-sprite-height($name) {
+    $file: sprite_file($Social-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin Social-sprite-dimensions($name) {
+  @include sprite-dimensions($Social-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin Social-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($Social-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin Social-sprite($name, $dimensions: $Social-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$Social-sprite-base-class};
+  @include sprite($Social-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin Social-sprites($sprite-names, $dimensions: $Social-sprite-dimensions, $prefix: sprite-map-name($Social-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($Social-sprites, $sprite-names, $Social-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-Social-sprites($dimensions: $Social-sprite-dimensions, $prefix: sprite-map-name($Social-sprites), $offset-x: 0, $offset-y: 0) {
+  @include Social-sprites(facebook-icon youtube-icon, $dimensions, $prefix, $offset-x, $offset-y);
+}

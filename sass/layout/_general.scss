@@ -1,0 +1,62 @@
+/* _general imported:started */ 
+
+
+.SurveyBorderBox {
+	//@include pointContainerBorder;
+	margin: 20px 10px 10px; 
+	padding: 15px;
+	overflow: auto;
+	height: $container_height-video - 40;
+}
+
+.SurveySpan {
+	font-style: italic;
+	font-size: .9em;
+	/*color: $SurveyTextColor;*/
+}
+
+.SurveySpan:before {
+	font-size: 24pt;
+	display: block;
+	content: "\201C";
+	/*color: $SurveyBorderColor;*/
+	float: left;
+	padding-right:5px;
+}
+
+.SurveySpan:after {
+	content: none;
+}
+
+.SurveyCustomer {
+	font: {
+		size: .9em;
+		style: normal;
+	}
+	padding: 15px;
+	/*color: $SurveyTextColor;*/
+
+	.icon-user { margin-right: 3px; }
+}
+
+
+
+.OffersLink {
+	font-size: .8em;
+}
+
+.mainOverlay {
+	clear: both;
+	width: 100%;
+	display: none;
+	background: #f7f7f7;
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	opacity: .50;
+}
+
+
+/* _general imported:finished */

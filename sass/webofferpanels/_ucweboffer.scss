@@ -1,0 +1,257 @@
+/* _uweboffer imported:started */ 
+
+// Container = 14 columns
+
+
+.offercontainer { 
+	&.panel-open { overflow:hidden; }
+	.uccontainer { overflow: hidden; }
+}
+
+.offerinputcontrols {
+	padding-top: 15px;
+	overflow: hidden;
+
+	input {
+		&:first-child {float: left;}
+		&:last-child {
+			float: right;
+			margin-top: 0;
+			width: 220px;
+		}
+	}
+}
+
+
+
+
+.cartitemcaption {
+	font: {	weight: bold; }
+}
+
+
+
+
+.data-container {
+	&.offer-selected {background-color: #A4F4A4;}
+	&.mouseover {background-color: #EBF4E1;}
+}
+
+.Jofferselect{
+	&.offer-selected {background-color: #A4F4A4;}
+	&.mouseover {background-color: #EBF4E1;}
+}
+
+div[id$="WebOfferUCContainer"]{
+	overflow: hidden;
+	border: 1px solid lightgray; 
+	border-top-width: 0;
+	width: 100%; 
+	cursor: pointer;
+
+	select {width: 60px; }
+	
+	.content { float: left; }
+	.caption {font-weight: bold;}
+	
+	input.button-link {
+		@extend .button-link;
+		@include font-size(.9);
+		margin-top: 5px;
+		background-color: white;
+		color: #0169A8;
+		padding-left: 10px;
+		padding-right: 10px;
+		
+		&.offer-input-selected {
+			background-color: #0169A8;
+			color: white;
+			padding-left: 17px;
+			padding-right: 17px;		
+		}
+		&.selected {
+			background-color: white;
+			color: #0169A8;			
+		}	
+		&:hover {
+			background-color: #0169A8;
+			color: white;		
+		}
+	}
+}
+	
+.groupcontainer.createyourownpackage {
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	margin-top: -2px
+}
+
+
+
+#TogglePanelWebOffers {
+	input[id$=OrderProcessSubmit]  {display: inherit;}	
+	.productcontainer {
+		border: 1px solid $color_default-border;
+		margin-top: 10px;
+		background-image: url(/images/WebOfferPanels/ProductBannerLighter_500x1.png);
+		background-repeat: repeat-y;
+		height: 75px;
+		overflow: hidden;
+		position: relative;
+		cursor: pointer;
+		
+		img { float: right; }
+
+		h2 {
+			z-index: 100;
+			position: absolute;    
+			left: 20px;
+			top: 25px;	
+			line-height: 1; 
+			font-size: 1em; 
+			margin-left: 15px;
+		}
+		
+		&.expanded h2 {	top: 16px; }
+
+		.instruct {
+			position: absolute;
+			left: 35px; 
+			bottom: 0;
+			font-size: 0.7em;
+		}
+		
+		.colexp { @extend %colexp; }		
+		
+		&.expanded .instruct { top: 35px; }
+
+		&.collapsed .colexp { 
+			@extend %colexp;
+			@include WebOfferPanels-sprite(plus); 
+		}
+		&.expanded .colexp { 
+			@extend %colexp;
+			@include WebOfferPanels-sprite(minus); 
+
+		}	
+	}
+}
+
+
+div[id$="ExpandedOffer"] {
+	width: 100%;
+	padding: 10px; 
+	position: relative;		
+	float: left;
+
+	.feturedofferimg {
+		position: absolute;
+		top: 0;
+		right: 10px;	
+	}
+
+	.image {
+		@include column(3.1);
+		float: left;	
+		left: 0;
+		
+		img {@extend %border-default-img; }
+	}
+
+	
+	.content {
+		@include column(7.0);
+		@include alpha;
+		.caption { margin-bottom: 10px; }
+	}
+
+	.amounts {
+		@include column(2.8);
+		@include omega;
+		float: right;
+		height: 85px;
+		margin-top: 35px;
+		text-align: right;
+		.price {
+			@include font-size(2.5);
+			font-weight: bold;				
+			&:before { content: ""; }							
+		}
+		.savings {
+			@include font-size(1.0);
+			color: blue;				
+		}
+	}
+	.quantity {
+		float: left;
+		margin: 20px 0 0 0;		
+		span { @include font-size(.8); }
+	}
+}
+
+.contentcontainer {
+	margin-left: 20px;
+	position: relative;
+	margin-left: 160px;
+}
+
+.eg-center-absolutely-container { position: relative; }
+.eg-center-absolutely {	@include scut-center-absolutely(n 123px); }
+.eg-absolute { @include scut-absolute(10px 10px n 10px);}
+
+
+
+div[id$="CompressedOffer"] {
+	//@include column(14);
+	@include alpha;
+	@include omega;
+	@extend %compressedoffer;
+	width: 100%;
+	
+	font: {	weight: bold; }
+	padding: 10px 0;
+
+	.content {
+		@include column(7.5);
+		@extend %compressedoffer;
+		margin-top: 5px;	
+		
+		.description {
+			@include column(10);			
+			font: {
+				size: 0.8em;
+				weight: normal;				
+			}		
+			&.hastext {	margin-top: 10px; }
+		}			
+	}
+	.quantity {
+		@include column(1.4);
+		margin-top: 2px;
+		height: 0;
+		span {
+			@include font-size(.8);
+			font-weight: normal;
+		}
+	}
+	.price {
+		@include column(1.4);
+		@extend %compressedoffer;
+		margin-top: 5px;
+		text-align: right;
+		&:before { content: ""; }
+	}
+	.submit {
+		@include column(3.1);
+		@include omega;
+		@extend %compressedoffer;
+
+		input { margin-top: 0; }
+
+	}
+}
+
+
+
+/* _ucweboffer imported:finished */

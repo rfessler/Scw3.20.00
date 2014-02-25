@@ -1,0 +1,127 @@
+/* resources imported:started */ 
+
+
+#resourcesContainer {
+	@include container;
+
+	height: $container_height-resources;
+	@extend .newContainer-borderless;
+
+	.resources-header {
+			@include ArticleHeaderLarge;
+			border-bottom: 1px solid $color_header-video; 
+			padding-bottom: 10px;
+			color: $color_header-video;
+			text-align: left;
+	}
+
+	.resources {
+		@include column($_columns / 3);
+		height: 40%;
+		margin-bottom: 20px;
+		
+		&.first {
+			@include alpha;
+			margin-left: 5px;
+			div {
+				@include column($_columns / 2 );
+				width: $ResourcesColumnWidth;
+
+				div {			
+					
+					&.firstimage { 
+						width: $ResourcesTextwidth - 10; 
+						border: 1px solid $SurveyBorderColor; 
+						padding: 5px; 
+						text-align: center; 
+						width: auto;  
+					}
+					&.firsttext { 
+						width: $ResourcesTextwidth * 2;
+						padding: 0;
+						div {
+							width: inherit;
+							&.firsttextHeader { @include ArticleHeaderSmall;}
+							&.firsttextText {  
+								@include ArticleTextSmall;
+								span {color: $color_background-footer;}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.middle {
+			margin-left: 5px;
+			div {
+				@include column($_columns / 2 );
+				width: $ResourcesColumnWidth;
+
+				div {			
+					
+					&.middleimage { 
+						width: $ResourcesTextwidth - 10; 
+						border: 1px solid $SurveyBorderColor; 
+						padding: 5px; 
+						text-align: center; 
+						width: auto; 
+					}
+					&.middletext { 
+						width: $ResourcesTextwidth * 2;
+						padding: 0;
+						div {
+							width: inherit;
+							&.middletextHeader { @include ArticleHeaderSmall;}
+							&.middletextText {  
+								@include ArticleTextSmall;
+								span {color: $color_background-footer;}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.last {
+			@include omega; 
+			margin-left: 5px;
+			div {
+				@include column($_columns / 2 );
+				width: $ResourcesColumnWidth;
+
+				div {			
+					
+					&.lastimage { width: $ResourcesTextwidth - 10; border: 1px solid $SurveyBorderColor; padding: 5px; text-align: center; width: auto; }
+					&.lasttext { 
+						width: $ResourcesTextwidth * 2;
+						padding: 0;
+						div {
+							width: inherit;
+							&.lasttextHeader { @include ArticleHeaderSmall;}
+							&.lasttextText {  
+								@include ArticleTextSmall;
+								span {color: $color_background-footer;}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	
+}
+
+.ResourcearticleLinkButtons {
+	@include ButtonAsLink($color_background-footer);
+//	color: $color_background-footer;
+//	border: none;
+//	background: none;
+//	border-radius: 0 0 0 0;
+//	margin: 0;
+//	padding: 0;
+//	height: 15px;
+//	font-size: 1em;
+}

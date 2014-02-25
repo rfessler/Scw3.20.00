@@ -1,0 +1,217 @@
+/* _mixins imported:started */ 
+
+
+// Local Variables
+$null: "";
+
+
+
+@mixin SetHeadingSize($from, $to, $baseSize, $subtractBy) {
+	$currentNumber: $from;
+	$currentSize: $baseSize;
+	$to: $to + 1;
+	
+//	@while $currentNumber != $to {
+//		h#{$currentNumber} {
+//				font-size: $currentSize;		
+//		}
+		$currentNumber: $currentNumber + 1;
+		$currentSize: $currentSize - $subtractBy;		
+}
+ 
+@mixin linespacer($color: #0069aa, $height: 3px, $width: 95%) {  
+  margin: 0 auto;
+  width: $width;
+  background: $color;
+  height: $height;
+  @include border-radius;
+}
+
+
+
+@mixin FormHeaderLarge {font-size: 1.5em;}
+
+@mixin ArticleHeaderLarge($color:inherit) {
+	font: {
+		weight: bold;
+	}
+	margin: 5px 0 10px;
+	padding: 0;
+	font-size: 1em;
+	color: $color;
+}
+
+@mixin ArticleTextLarge($height: auto) {
+	margin: inherit;
+	padding: inherit;
+	height: $height;
+	font-size: 1em;
+}
+
+
+@mixin ArticleHeaderSmall {
+	font: {
+		weight: bold;
+	}
+	margin: 0px 0 10px;
+	padding: 0;
+	font-size: .75em;
+}
+
+@mixin ArticleTextSmall($height: auto) {
+	margin: 0px;
+	padding: inherit;
+	height: $height;
+	font-size: .75em;
+}
+
+@mixin SectionHeader($textcolor: $color_header-section) {
+	@include ArticleHeaderLarge;
+	border-bottom: 1px solid $color_header-section; 
+	padding-bottom: 10px;
+	color: $textcolor;
+	text-align: left;
+}
+
+@mixin SectionText {@include ArticleTextLarge;}
+
+@mixin NavHeader ($textcolor: $color_background-footer) {
+	@include ArticleHeaderLarge;
+	padding-bottom:5px;
+	margin-bottom: 5px;
+	padding-top:25px;
+	color: $textcolor;
+	text-align:left;
+	height:auto;
+}
+
+@mixin NavText {
+	@include ArticleTextSmall;
+	color: $color-darkGray;
+	padding-top: 0px;
+
+}
+
+@mixin NavImage {
+	padding-top: 15px;
+	height: auto;
+	text-align:left;
+}
+
+@mixin activeBlockBorder ($bordersize, $bordercolor: $OrangeBottomBorder) {
+	@include box-sizing(border-box);
+	border-color: $bordercolor;
+}
+
+@mixin activeBlockBottomBorder ($bordersize, $bordercolor: $OrangeBottomBorder) {
+	@include box-sizing(border-box);
+	border-bottom-color: $bordercolor;
+}
+
+
+
+@mixin vanillaLink($color: #000) {
+	text-decoration:none;
+	color: $color;
+}
+
+
+
+@mixin SectionSeperator($distance: $default_margin_top) {
+	margin-top: $distance;
+}
+
+
+
+@mixin DefaultContainer($height, $width) {	
+	@include container($width,  $default_padding);
+	@extend .marginTop-seperation;
+	height: $height;
+	padding: $default_padding;
+	
+//	@if $backgroundcolor { background-color: $backgroundcolor; }
+}
+
+
+
+@mixin contentHeader($textcolor: $color_header-pageTitle, $fontSize:1.0em, $textAlign:left, $borderBottom:false) {
+	padding: 0 0 5px;
+	margin-bottom: 10px;
+	color: $textcolor;
+	text-align: $textAlign;
+	font: {
+		size: #{$fontSize};
+		weight: bold;
+	}
+	
+	
+	@if $borderBottom {
+		border-bottom: 1px solid $textcolor;
+	}
+	
+		
+}
+
+@mixin article-content_text($fontSize: 1.0em, $fontWeight: normal) {
+	margin-top: 10px;
+	font: {
+		size: #{$fontSize};
+		weight: #{fontWeight};
+	}
+}
+
+@mixin pageHeader {	@include contentHeader($fontSize: 1.2em);}
+
+
+$bg_color: inherit;
+
+@mixin pointContainer($columns: $_columns, $subtract: $_subtract, $includeBorder:false, $bgcolor: $bg_color) {
+	@include column($columns, $subtract);	
+	@extend .newContainer;
+	
+	@if $bgcolor != $bg_color {background-color: $bgcolor;}
+
+	@if $includeBorder {
+		@include pointContainerBorder; 
+		padding: $default_padding-inside;
+	}
+}
+
+////////// @debug "replace pointContainer with blockContainer. (rmf:1/23/2013)";
+
+
+@mixin section2format($headerTextColor: $color_header-section, $fontSize:1em) {	
+//	 .containerheader {
+//		@include contentHeader($headerTextColor, $fontSize);
+//		padding: 0 10px 10px 0;	
+//	}
+	.graphic {	
+		float: left;		
+		img {width:100%;}					
+	}
+	&.text-left {		
+		.text {
+			@include alpha;
+			margin-right: 10px;
+		}		
+		.graphic {@include omega;}
+	}
+	&.graphic-left {
+		.graphic {@include alpha;}
+		.text {
+			@include omega;
+			margin-left: 10px;
+		}
+	}
+}
+
+
+
+
+@mixin mainContentContainer($columns: $_columns) {
+	margin-left: 10px;
+	@include container($columns, 10px);
+}
+
+
+

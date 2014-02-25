@@ -1,0 +1,148 @@
+/* _footer imported:started 
+*/
+
+.pageFooter {
+	width: 100%;
+	@extend .newContainer;
+	height: $container_height-footer;
+	background-color: $color_background-footer;
+}
+
+#Footer {
+
+	@include wrapper;
+	height: $container_height-footer;
+	color:	$color-white;
+	
+
+	div.footer-columns {
+		@include column($_columns / 3);
+		line-height:normal;
+		height: 270px;
+		padding-left: 40px;
+		.sub-column-left {
+			float: left; 
+			width: 49%;
+		}
+		.sub-column-right {
+			float: left; 
+			width: 49%;
+			.footer-link {margin-left: 5px;}
+		}
+		.sub-container {height: 125px;}
+
+		margin-top: 10px;
+		text-align: left;
+
+		.footer-headers { 
+			text-align: left;
+			width: 140%;
+			div.footer-text {
+				font-size: 1em; 
+				font-weight: bold; 
+			}
+
+			div.footer-float-left div{
+				float:left;
+				width: 100%;
+				.footer-social-icon {
+					@include Social-sprite(YouTube30X30);
+					height:30px; 
+					width:30px;
+					float: left;
+				}
+				.footer-social-facebook-icon {
+					@include Social-sprite(FacBk30X30);
+						
+					height:30px; 
+					width:30px;
+					float: left;
+				}
+				.footer-blog-icon {
+					@include Social-sprite(BLOG30X30);
+					height: 30px;
+					width: 30px;
+					float: left;
+				}
+				.footer-survey-icon {
+					@include Social-sprite(SATGUAR30X30);
+					height: 30px;
+					width: 30px;
+					float: left;
+				}
+				.social-icon-caption {
+					height: 35px;
+					padding-left: 15px;
+					padding-top: 9px;
+					float: left;
+				}
+				span {
+					font: {
+						size: 0.85em;
+						weight: normal;
+					}
+					line-height: 1;
+					margin-top: 5px;
+				}
+			}
+
+			.blog-caption {
+				margin-top: 10px;
+				font:{
+					weight: bold; 
+					size: 0.8em;
+				}
+			}
+
+			.blog-preview {
+				font-size: 0.9em;
+				line-height: 1.2em;
+				margin-right: 50px;
+				margin-top: 0;
+				padding: 5px 0;
+			}
+
+			div {
+				font-size: 0.89em;
+				font-weight: normal;
+				line-height: 1;
+				margin-top: 5px;
+			}
+		}
+	}
+	
+	div.footer-columns-links
+	{
+		@extend div.footer-columns;
+		padding-left: 100px;
+	}
+}
+
+.policies
+{
+	display: block;
+	float: left; 
+	line-height: normal;
+	text-align: center;
+	width: 100%;
+
+	.footer-link 
+	{
+		float: left;
+		margin: 0 60px;
+		font-weight: bold;
+		font-size: 0.89em;
+	}
+}
+
+.footer-img {
+	background-color: $color_background-footer; 
+	color:$color-white;
+	text-align:center;
+	img {margin-top: 25px;}
+	div {
+		color: $color-white; 
+		font-size: 8pt;
+	}
+}
+/* _footer imported:finished */

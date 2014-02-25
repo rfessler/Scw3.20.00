@@ -1,0 +1,34 @@
+/* _screenEx imported:started */ 
+// @warn "$n_development is #{$in_development}";
+// @debug "$n_development is #{$in_development}";
+
+
+iframe[seamless] {
+    background-color: transparent;
+    border: 0 none transparent;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.Social-youtube-icon, 
+.Social-facebook-icon {
+	&:hover {cursor: pointer;}
+	&.right {float:right; font-size:.7em; margin-top:5px;}
+}
+
+
+// used for the fontawesome classes
+.add-on { @include box-sizing(content-box); }
+
+
+.underline {border-bottom: 1px solid black;}
+
+
+
+
+
+
+/* _screenEx imported:finished */
+
+

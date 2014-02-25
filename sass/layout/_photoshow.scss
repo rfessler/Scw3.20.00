@@ -1,0 +1,243 @@
+﻿/* _photoshow imported:started */ 
+
+
+
+
+
+//@import "misc/*.png";
+//@include all-misc-sprites(true);
+
+//@mixin spr($img) {@include misc-sprite($img);}
+
+@mixin no-bullets { list-style-image: none; list-style-type:none; margin-left:0px;}
+
+
+
+$padding: 10;
+
+$navigate_columns: 13;
+
+
+
+div span {
+	font-size: 1em;
+}
+
+#PhotoshowContainer {
+	@include container;
+	//&:hover{cursor:pointer;}
+	.current { @include opacity(1); }
+
+	.navigate {
+		@include column($navigate_columns, -5px);
+		@include alphaomega;
+		&:hover {cursor:pointer;}
+
+		div.divphotoShow {
+			position: relative;
+			@include column($navigate_columns);	
+			display:block;
+			div {
+				Position: absolute;			    /*stack images on top of each other*/
+				z-index: 0;
+				@include opacity(0);
+				&.current { z-index: 2; } /*which div has style sheet applied will be one on top*/			
+				&.previous { z-index: 1; } /*which div has style sheet will be directly under one with class current*/	
+			}
+			//&:hover { cursor:pointer; }
+		}
+	}
+
+	.groupcontainer.leftnavcontrol {/*width: 274px;*/ width:276px; margin-left:-55px; height:inherit;}
+
+	.imgText {
+		position:absolute;
+		z-index:10;
+	}
+	.contentText {
+		font-size: 1em;
+		font-size: 1em; /* For lt IE9 -- AFH 11.26.13 */
+		margin: 5px 15px 15px 25px;
+		color: $color-lightBlack;
+	}
+
+	.headerText {
+		position: absolute;
+		z-index: 50;
+		@include opacity(0.85);
+		margin: $default_padding-margin_offset;
+		@include border-radius;
+		line-height: normal;
+		background-color: $color-white;
+	}
+
+	.headerTextInner {
+		font-size: 2em;
+		font-size: 2em\9; /* For lt IE9 -- AFH 11.26.13 */
+		margin: 25px 25px 10px;
+		padding: 2px 0px;
+		height: 20%;
+		color: $color-lightBlack;
+	}
+
+//	input.zipcode {width: 120px;}
+
+	.localsOfferContent  {
+		/*margin-left: -48px;*/
+	}
+}
+
+#EnterZipcode {
+	.form-inputs { width: 100%;}
+
+//	div, span, input {padding:inherit 0; margin: inherit 0; width: auto;}
+}
+
+
+
+#LocalOffersDisplayed, #LocalOffersDisplayedNational {
+
+	#PhotoshowContainer & {padding:inherit 0;}
+
+	.ulspecialOffersItems {
+		@include no-bullet;
+		padding-left: 0;
+		
+		
+	}
+
+	.offerinputcontrols { 		
+//		input {margin-left: 10px;}
+//		input:first-child {margin-left: 0;}
+
+		input:not(:first-child) {float: right; margin-right: 5px;}
+	}
+
+}
+
+
+
+
+#estimateContainer {
+	@include container;
+
+	.current { @include opacity(1); }
+
+	.navigate {
+		@include column($navigate_columns, -5px);
+		@include alphaomega;
+
+
+		div.divphotoShow {
+			position: relative;
+			@include column($navigate_columns);	
+			display:block;
+
+			div {
+				Position: absolute;			    /*stack images on top of each other*/
+				z-index: 0;
+				@include opacity(0);
+
+				&.current { z-index: 2; } /*which div has style sheet applied will be one on top*/			
+				&.previous { z-index: 1; } /*which div has style sheet will be directly under one with class current*/	
+			}
+			//&:hover { cursor:pointer; }
+		}
+	}
+
+
+	.imgText {
+		position:absolute;
+		z-index:10;
+	}
+	.contentText {
+		font-size: medium;
+		margin: 5px 25px 25px 25px;
+	}
+
+	.headerText {
+		position: absolute;
+		z-index: 50;
+		@include opacity(0.75);
+		margin: $default_padding-margin_offset;
+		@include border-radius;
+		line-height: normal;
+		background-color: $color-white;
+	}
+
+	.headerTextInner {
+		font-size:xx-large;
+		margin: 25px 25px 10px;
+		padding: 2px 0px;
+		height: 20%;
+	}
+
+
+	ul {
+		@include no-bullets;  
+		position: relative; 
+		bottom: $padding; 
+		height: 25px; 
+		width: get_width(10); 
+		top: 385px;
+		left: 20px;
+		padding: 0px;
+		z-index: 99;
+		background-color: transparent;
+		@include misc-sprites(OrangeSquare OrangeSquareEmpty);
+		li { 
+			cursor: pointer;
+			float: left; 
+			width: 20px; 
+			height: 20px; 
+			margin: 0 10px 0 0;
+			padding-right: 10px; 
+			
+			&.active { cursor: default; } 
+		}
+	}
+
+}
+
+
+
+.ulphotoshow {
+	@include no-bullets;  
+	position: relative; 
+	bottom: $padding; 
+	height: 25px; 
+	width: get_width(10); 
+	top: 385px;
+	left: 20px;
+	padding: 0px;
+	z-index: 99;
+	background-color: transparent;
+	@include misc-sprites(OrangeSquare OrangeSquareEmpty);
+	li { 
+		//cursor: pointer;
+		float: left; 
+		width: 20px; 
+		height: 20px; 
+		margin: 0 10px 0 0;
+		padding-right: 10px; 
+			
+		&.active { cursor: default; } 
+	}
+}
+
+
+
+
+
+
+.current {
+	@include opacity(1);
+	display:block;
+}
+
+.previous {
+	@include opacity(0);
+	display:none;
+}
+
+/* _photoshow imported:finished */

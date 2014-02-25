@@ -1,0 +1,28 @@
+.TileGroutSquares {
+	height:52px; 
+	width: 58px;
+	margin: 0 0 30px 5px;
+	float:left;
+	border: 0;
+
+	&.AntiqueIvory { @include swatches-sprite(AntiqueIvory_60); }
+	&.ArchGray { @include swatches-sprite(ArchGray_60); }
+	&.DeloreanGray { @include swatches-sprite(DeloreanGray_60); }
+	&.Jamoca { @include swatches-sprite(Jamoca_60); }
+	&.LightPewter { @include swatches-sprite(LightPewter_60); }
+	&.Malibu { @include swatches-sprite(Malibu_60); }
+	&.Mist { @include swatches-sprite(Mist_60); }
+	&.Oak { @include swatches-sprite(Oak_60); }
+	&.SmokeGray { @include swatches-sprite(SmokeGray_60); }
+	&.Tarrragon { @include swatches-sprite(Tarrragon_60); }
+	&.TaupeTwist { @include swatches-sprite(TaupeTwist_60); }
+	&.WinterGray { @include swatches-sprite(WinterGray_60); }
+
+	.TextUnder {
+		margin-top:52px;
+		text-align:center;
+		font-size: .60em;
+		padding-top:5px;
+	}
+	//&:hover { cursor: pointer;}
+}

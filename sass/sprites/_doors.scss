@@ -1,0 +1,84 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$doors-sprite-base-class: ".doors-sprite" !default;
+$doors-sprite-dimensions: false !default;
+$doors-position: 0% !default;
+$doors-spacing: 0 !default;
+$doors-repeat: no-repeat !default;
+$doors-prefix: '' !default;
+$doors-clean-up: true !default;
+$doors-layout:vertical !default;
+$doors-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $doors-garagedoor-position: $doors-position !default;
+   $doors-garagedoor-spacing:  $doors-spacing !default;
+   $doors-garagedoor-repeat:   $doors-repeat !default;
+ 
+
+ $doors-sprites: sprite-map("doors/*.png",
+ 
+   $doors-garagedoor-position: $doors-garagedoor-position, 
+   $doors-garagedoor-spacing:  $doors-garagedoor-spacing, 
+   $doors-garagedoor-repeat:   $doors-garagedoor-repeat,
+ 
+ $layout: $doors-layout,
+ $cleanup: $doors-clean-up
+ );
+
+
+// All sprites should extend this class
+// The doors-sprite mixin will do so for you.
+@if $doors-inline {
+  #{$doors-sprite-base-class} {
+    background-image: inline-sprite($doors-sprites);
+  } 
+} @else {
+  #{$doors-sprite-base-class} {
+    background: $doors-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function doors-sprite-width($name) {
+    $file: sprite_file($doors-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function doors-sprite-height($name) {
+    $file: sprite_file($doors-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin doors-sprite-dimensions($name) {
+  @include sprite-dimensions($doors-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin doors-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($doors-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin doors-sprite($name, $dimensions: $doors-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$doors-sprite-base-class};
+  @include sprite($doors-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin doors-sprites($sprite-names, $dimensions: $doors-sprite-dimensions, $prefix: sprite-map-name($doors-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($doors-sprites, $sprite-names, $doors-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-doors-sprites($dimensions: $doors-sprite-dimensions, $prefix: sprite-map-name($doors-sprites), $offset-x: 0, $offset-y: 0) {
+  @include doors-sprites(garagedoor, $dimensions, $prefix, $offset-x, $offset-y);
+}

@@ -1,0 +1,157 @@
+/* _base write:started */  
+ 
+
+
+
+
+ @import "compass/support";
+
+ $legacy-support-for-ie: false !default;
+ $legacy-support-for-mozilla: false !default; 
+
+
+// Included Vendor Prefixes from Compass
+$experimental-support-for-mozilla : true !default;		// -moz-
+$experimental-support-for-webkit : true !default;		// -webkit-
+$support-for-original-webkit-gradients : true !default;	// -webkit-
+$experimental-support-for-microsoft : true !default;	// -ms-
+
+// Removed Vendor Prefixes from Compass
+$experimental-support-for-khtml: false;		// -khtml-
+$experimental-support-for-opera: false;		// -o-
+
+
+
+
+// Compass/sass imports
+@import "compass";
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "compass/utilities";
+
+@import "variables";
+@import "blankwork";
+
+@import "scut";
+
+
+/*
+@import "mixins/mixinsobsolete";
+@import "mixins/mixins";
+@import "mixins/typographymixins";
+@import "mixins/arrows";
+
+*/
+
+@import "placeholders";
+
+@import "mixins/all-mixins";
+
+
+@import "extends";
+
+
+
+@import "sprites";
+
+/*
+@import "sprites/system";
+@import "sprites/misc";
+@import "sprites/Social";
+@import "sprites/swatches";
+@import "sprites/Icons"; 
+*/
+
+@import "sprites/all-sprites"; 
+
+@import "settings";
+
+@import "SEO/headertags";
+
+// partials
+@import "partials/placeholderLabels";
+@import "partials/euc-inputvalidator";
+// fonts
+@import "partials/fontawesomebase";
+@import "partials/fontawesome";
+
+//@import "containers/v2"; //TODO: to be removed when clean up is done.
+
+//@import "globals";
+
+
+@import "layout/containerblocks";
+@import "containers/duoBlock";
+@import "containers/globalcontainer";
+@import "containers/postcontainer";
+
+@import "partials/infocontainer";
+@import "partials/links";
+
+@import "globals";  
+@import "scheduler";
+
+@import "layout/navigation";
+@import "partials/resources";
+
+
+// Offers styling
+@import "offers/offers";
+
+
+/*
+//Import Theme
+@import "layout/general";
+@import "layout/header";
+@import "layout/photoshow";
+@import "layout/estimate";
+@import "layout/products";
+@import "layout/articles";
+@import "layout/footer";
+@import "layout/video";
+@import "layout/tilegrout";
+*/
+
+@import "layout/all-layout";
+@import "webofferpanels/all-webofferpanels";
+
+
+@import "partials/usercontrols/specialoffers";
+
+
+@import "promocodes";
+
+@import "screenEx";
+
+@import "partials/typography";
+
+
+// Local Page Styles
+
+@import "baselocalpages";
+@import "localpagestyles";
+@import "galleries/localoffersgallery";
+@import "galleries/servicegallery";
+@import "galleries/areasservicedgallery";
+@import "galleries/mediagallery";
+@import "galleries/articlesgallery";
+@import "galleries/linksgallery";
+@import "galleries/businessinfogallery";
+@import "galleries/surveygallery";
+@import "productsoffered";
+@import "displayoverlay";
+
+
+
+
+//@import "debug/debug";
+
+
+//@import "development";
+
+// Mobile Page Styles
+
+@import "mobile";
+
+
+/* _base write:finished */

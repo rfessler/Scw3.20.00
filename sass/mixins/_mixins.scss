@@ -1,0 +1,350 @@
+/* _mixins imported:started */ 
+
+// Local Variables
+$null: "";
+
+
+@mixin border_light {border: 1px solid $color_default-border;}
+
+//////////@debug "@mixin pointContainerBorder TO BE REMOVED";
+@mixin pointContainerBorder ($color: $color_default-border,		
+	$width:1px, 
+	$borderType:solid) 
+	{
+	border: $width $borderType $color;	
+}
+
+// TODO: OBSOLETE to be removed ref 1.1
+@mixin addContainerBorder ($color: $color_default-border,		
+	$width:1px, 
+	$borderType:solid) 
+	{
+	border: $width $borderType $color;
+	padding: $default_padding-inside;	
+}
+
+
+@mixin seperator($color: #0069aa, 
+	$height: 3px, 
+	$width: auto) 
+	{  
+  margin: 5px auto;
+  width: $width;
+  background: $color;
+  height: $height;
+  @include border-radius;
+}
+
+
+@mixin hoverBlock($bgcolor) {
+	cursor: pointer;
+	background-color: $bgcolor;
+}
+
+
+@mixin RequiredText($height: auto) {
+	margin: 0;
+	padding: inherit;
+	height: $height;
+	font-size: .75em;
+	color: $color-emergencyRed;
+}
+
+
+@mixin ButtonAsLink($color){
+	background: none;
+	border: none;
+	color: $color;
+
+}
+
+@mixin ButtonAsButton($color: #fff, 
+	$backgroundColor: $color_background-button, 
+	$borderSize:1px, 
+	$borderColor:#000, 
+	$height:25px, 
+	$borderRadius:5px, $float: left) 
+	{
+
+	@include border-radius($borderRadius);
+	background-color: $backgroundColor;
+	color: $color;
+	border: $borderSize solid $borderColor;
+	height: $height;
+	float: $float;
+}
+
+
+@mixin LinkAsLink($underline:none, 
+	$fsize:1.0em)
+	{
+	text-decoration: $underline;
+	font-size: $fsize;
+}
+
+@mixin blockContainer($columns: $_columns, 
+	$subtract: $_subtract, 
+	$includeBorder: false, 
+	$bgcolor: $bg_color) 
+	{
+
+	@include alphaomega;
+	@include container($columns, 10px);	
+	margin: 40px 0 0 0;
+
+
+	@if $bgcolor != $bg_color {background-color: $bgcolor;}
+
+	@if $includeBorder {@include pointContainerBorder;}
+}
+
+
+
+
+
+@mixin pageTextOnly($columns: $_columns,	
+	$textColor: $color-black) 
+	{
+
+	@include container($columns);
+	@include alphaomega;
+	@extend .newContainer-borderless;
+	color: $textColor; 
+}
+
+
+$header-pageTitle: 0;
+$header-article: 1;
+$header-container: 2;
+
+@mixin header($headerType: $header-pageTitle,	
+	$textColor: $color-black, 
+	$fontSize:1em, 
+	$align:left, 
+	$underline:false) 
+	{
+
+	font-size: $fontSize;
+	color: $textColor;
+	text-align: $align;
+	
+	@if $underline {border-bottom: 1px solid $textColor;}
+
+	@if $headerType == $header-pageTitle {
+		margin: $default-padding 0 10px 0;
+		font: {size: 1.3em; weight: bold;}
+		text-align: $align;
+	}
+	@else if $headerType == $header-article {
+		margin: 0 0 10px 0;
+		font: {size: 1.1em;	weight: bold;}		
+		text-align: $align;
+	}
+	@else if $headerType == $header-container {		
+		padding: 0 0 5px 0;
+		margin: 0 0 10px 0;
+		font: {size: 1.2em;	weight: bold;}		
+		text-align: $align;
+	}
+	@else {	
+		color: $textColor;
+		font-size: $fontSize;
+		text-align: $align;		
+	}
+}
+
+$caption-above: 3;
+$caption-on_right: 4;
+$caption-on_left: 5;
+$caption-underneath: 6;
+
+@mixin xxxcaption($captionType: $caption-above, 
+	$textColor: $color-black, 
+	$fontSize:1em, $align:left, 
+	$underline:false) 
+	{
+
+	font-size: $fontSize;
+	color: $textColor;
+	text-align: $align;
+	
+	@if $underline {border-bottom: 1px solid $textColor;}
+	
+	@if $captionType == $caption-on_left {
+		margin-left: 5px;
+		font: {size: $fontSize; weight: bold;}				
+	}
+	@else if $captionType == $caption-on_right { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else if $captionType == $caption-underneath { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else if $captionType == $caption-above { 
+		font: {size: $fontSize;	weight: bold;}			
+	}
+	@else { 
+		color: $textColor;
+		font-size: $fontSize;
+		text-align: $align;	
+	}
+}
+
+
+$bottom: 0;
+$top: 1;
+$left: 2;
+$right: 3;
+
+@mixin seperatorLine($seperatorType: $bottom, 
+	$color: $color_indicator-seperator, 
+	$width:3px) 
+	{	
+	@if $seperatorType == $bottom {border-bottom: $width solid $color;}
+	@else if $seperatorType == $top {border-top: $width solid $color;}
+	@else if $seperatorType == $right {border-right: $width solid $color;}
+	@else if $seperatorType == $left {border-left: $width solid $color;}
+	@else { }
+}
+
+$information-arrow: 0;
+$information-noArrow: 1;
+
+
+@mixin informationalBlock($bgColor: $color_background-articles) {	
+	position: relative;	
+	background-color: $bgColor; 
+	padding: $default_padding-inside;
+	border-left: 8px solid $color_background-seperator;
+}
+
+//TODO: informationalBlock changes to infoBlock
+
+@mixin infoBlock($bgColor: $color_background-articles) {
+	position: relative;	
+	background-color: $bgColor; 
+	padding: $default_padding-inside;
+	border-left: 8px solid $color_background-seperator;
+}
+
+
+
+$container-full: 0;
+$container-withLeftNav: 1;
+
+@mixin triBlock($type: $container-withLeftNav, 
+	$columns: $_columns, 
+	$height: auto, 
+	$subtractContainer: 0, 
+	$subtractColumn: 0, 
+	$includeBorder: false) 
+	{ 
+
+	height: $height;
+//	@extend .newContainer-borderless;
+
+	@if $includeBorder {@include border_light;}
+
+	&.blockContainer, .infoBlock {
+		@if $type == $container-full {
+			@include container;	
+			$subtractColumn: 5px;
+		}
+		@else {
+			@include blockContainer($columns, $subtractContainer);	
+			$subtractColumn: 10px;
+		}
+	}
+	.caption-article {@include header($header-article, $color_black, 1em, left, false);}
+	
+
+	.container {
+		@include column($columns / 3, $subtractColumn);
+		@include pointContainerBorder;
+		position: relative;
+		padding: $default-padding / 2; 
+		margin: 0 10px;
+		height: 100%;
+
+		&.first { @include alpha; }
+		&.last { @include omega; }
+		
+		.image { 
+			text-align: center; 
+			margin-bottom: 10px; 			
+			img.seperator {@include seperatorLine($bottom);}			
+		}	
+
+		.article {overflow: hidden;}
+
+		.link {
+			@include ButtonAsButton;
+			position:absolute;
+			right: 10px;
+			bottom: 10px;	
+		}
+	}
+}
+
+@mixin uniBlock($type: $container-withLeftNav, 
+	$columns: $_columns, 
+	$height: auto, 
+	$subtractContainer: 0, 
+	$subtractColumn: 0, 
+	$includeBorder: false) 
+	{
+	
+	height: $height;	
+	
+	@if $includeBorder {@include border_light;}
+
+	&.blockContainer {
+		@extend .newContainer-borderless;			
+		@if $type == $container-full {
+			@include container;	
+			$subtractColumn: 5px;
+		}
+		@else {
+			@include blockContainer($columns, $subtractContainer);	
+			$subtractColumn: 10px;
+		}
+		.caption-article {@include header($header-article, $color_black, 1em, left, false);}
+		.caption-container {@include header($header-container, $color_black, 1em, left, false);}
+	}		
+}
+
+@mixin duoBlock {
+
+}
+
+
+// TODO: OBSOLETE to be removed ref 1.1
+@mixin newContainer($border:true, $height:auto) {
+	height: $height;
+	@extend .addContainerBorder !Optional; 
+}
+
+
+
+
+
+
+
+
+
+@mixin infoContainer($bgcolor:$info-background_color) {
+	background-color: $bgcolor;
+}
+
+
+@mixin infoBorder($width: $info-border_width, 
+	$color: $info-border_color) {
+	border-left: $width solid $color;
+	padding: 15px 10px;
+}
+
+@mixin infoarrow {
+	content:"";
+	@include arrow-right(7px, $info-border_color, 20px, 0);
+}
+

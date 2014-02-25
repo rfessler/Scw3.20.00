@@ -1,0 +1,124 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$misc-sprite-base-class: ".misc-sprite" !default;
+$misc-sprite-dimensions: false !default;
+$misc-position: 0% !default;
+$misc-spacing: 0 !default;
+$misc-repeat: no-repeat !default;
+$misc-prefix: '' !default;
+$misc-clean-up: true !default;
+$misc-layout:vertical !default;
+$misc-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $misc-OrangeSquare-position: $misc-position !default;
+   $misc-OrangeSquare-spacing:  $misc-spacing !default;
+   $misc-OrangeSquare-repeat:   $misc-repeat !default;
+ 
+   $misc-OrangeSquareEmpty-position: $misc-position !default;
+   $misc-OrangeSquareEmpty-spacing:  $misc-spacing !default;
+   $misc-OrangeSquareEmpty-repeat:   $misc-repeat !default;
+ 
+   $misc-arrowLeft-position: $misc-position !default;
+   $misc-arrowLeft-spacing:  $misc-spacing !default;
+   $misc-arrowLeft-repeat:   $misc-repeat !default;
+ 
+   $misc-arrowRight-position: $misc-position !default;
+   $misc-arrowRight-spacing:  $misc-spacing !default;
+   $misc-arrowRight-repeat:   $misc-repeat !default;
+ 
+   $misc-emergency-position: $misc-position !default;
+   $misc-emergency-spacing:  $misc-spacing !default;
+   $misc-emergency-repeat:   $misc-repeat !default;
+ 
+   $misc-navLinkSeperator-position: $misc-position !default;
+   $misc-navLinkSeperator-spacing:  $misc-spacing !default;
+   $misc-navLinkSeperator-repeat:   $misc-repeat !default;
+
+
+ $misc-sprites: sprite-map("misc/*.png",
+ 
+   $misc-OrangeSquare-position: $misc-OrangeSquare-position, 
+   $misc-OrangeSquare-spacing:  $misc-OrangeSquare-spacing, 
+   $misc-OrangeSquare-repeat:   $misc-OrangeSquare-repeat,
+ 
+   $misc-OrangeSquareEmpty-position: $misc-OrangeSquareEmpty-position, 
+   $misc-OrangeSquareEmpty-spacing:  $misc-OrangeSquareEmpty-spacing, 
+   $misc-OrangeSquareEmpty-repeat:   $misc-OrangeSquareEmpty-repeat,
+ 
+   $misc-arrowLeft-position: $misc-arrowLeft-position, 
+   $misc-arrowLeft-spacing:  $misc-arrowLeft-spacing, 
+   $misc-arrowLeft-repeat:   $misc-arrowLeft-repeat,
+ 
+   $misc-arrowRight-position: $misc-arrowRight-position, 
+   $misc-arrowRight-spacing:  $misc-arrowRight-spacing, 
+   $misc-arrowRight-repeat:   $misc-arrowRight-repeat,
+ 
+   $misc-emergency-position: $misc-emergency-position, 
+   $misc-emergency-spacing:  $misc-emergency-spacing, 
+   $misc-emergency-repeat:   $misc-emergency-repeat,
+ 
+   $misc-navLinkSeperator-position: $misc-navLinkSeperator-position, 
+   $misc-navLinkSeperator-spacing:  $misc-navLinkSeperator-spacing, 
+   $misc-navLinkSeperator-repeat:   $misc-navLinkSeperator-repeat,
+ 
+ $layout: $misc-layout,
+ $cleanup: $misc-clean-up
+ );
+  
+
+// All sprites should extend this class
+// The misc-sprite mixin will do so for you.
+@if $misc-inline {
+  #{$misc-sprite-base-class} {
+    background-image: inline-sprite($misc-sprites);
+  } 
+} @else {
+  #{$misc-sprite-base-class} {
+    background: $misc-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function misc-sprite-width($name) {
+    $file: sprite_file($misc-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function misc-sprite-height($name) {
+    $file: sprite_file($misc-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin misc-sprite-dimensions($name) {
+  @include sprite-dimensions($misc-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin misc-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($misc-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin misc-sprite($name, $dimensions: $misc-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$misc-sprite-base-class};
+  @include sprite($misc-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin misc-sprites($sprite-names, $dimensions: $misc-sprite-dimensions, $prefix: sprite-map-name($misc-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($misc-sprites, $sprite-names, $misc-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-misc-sprites($dimensions: $misc-sprite-dimensions, $prefix: sprite-map-name($misc-sprites), $offset-x: 0, $offset-y: 0) {
+  @include misc-sprites(OrangeSquare OrangeSquareEmpty arrowLeft arrowRight emergency navLinkSeperator, $dimensions, $prefix, $offset-x, $offset-y);
+}

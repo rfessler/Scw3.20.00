@@ -1,0 +1,197 @@
+/* _globalcontainer imported:started */ 
+
+
+
+/*#region "GROUP CONTAINER STYLES"*/
+
+
+
+.groupcontainer {	
+	padding: 10px; 
+	border: 1px solid transparent;	
+	position: relative;
+	@include alphaomega;
+	
+	.edgetoedge {@extend .edgetoedge;}
+
+	.fullpagecontent & {@include container($_columns);}
+	.shortpagecontent & {@include container($columns-shortpagecontent);}	
+
+
+	&.leftnavcontrol {@include container($columns-leftnav);}
+
+}
+
+
+.leftnav {
+	@include container($columns-leftnav);
+
+	.groupcontainer {	
+		@include column($columns-leftnav, 15px);
+		@include alphaomega;
+		padding: 0;
+		margin: 10px auto;
+	}
+}
+
+
+
+
+/*#endregion*/
+
+
+/*#region "SUB CONTAINER STYLES"*/
+
+.subcontainer {
+	padding: 10px inherit;
+	border: 1px solid transparent;
+	/*position: relative;*/
+
+	.spacing_none {padding: inherit 0;}
+
+	&.image {
+		text-align: center;
+		vertical-align: middle;
+	}
+	&.image_topleft {
+		text-align: left;
+		vertical-align: top;
+	}
+	&.image_topright {
+		text-align: right;
+		vertical-align: top;
+	}
+
+	//&.border {border: 1px solid black;}
+
+
+
+
+
+
+////	img { margin: 10px auto;}
+//		div { &.articletext {padding-left:5px;}}
+	/* ***********************************************************************************
+	// USE IF NEEDED:
+	@include word-break(normal);	// $type : normal, keep-all, break-all
+	@include hyphens(auto);			// $type : auto, manual, none
+	@include hyphenation;
+	*************************************************************************************/
+}
+/*#endregion*/
+
+.image img.border {
+	border: 1px solid $color_default-border;
+	padding: 10px;
+}
+
+
+
+$blocks-tri: 3;
+$column-tri-fullpagecontent: round($_columns / $blocks-tri) !default;
+$column-tri-shortpagecontent: round($columns-shortpagecontent / $blocks-tri) !default;
+
+$blocks-duo: 2;
+$column-duo-fullpagecontent: round($_columns / $blocks-duo) !default;
+$column-duo-shortpagecontent: round($columns-shortpagecontent / $blocks-duo) !default;
+
+
+
+/*#region "UNI BLOCK CONTAINER STYLES"*/
+$blocks-uni: 1;
+$column-uni-fullpagecontent: round($_columns / $blocks-uni) !default;
+$column-uni-shortpagecontent: round($columns-shortpagecontent / $blocks-uni) !default;
+
+.uniBlock { 
+
+
+}
+/*#endregion*/
+
+
+
+/*#region "DUO BLOCK CONTAINER STYLES"*/
+
+.duoBlock { 
+	.fullpagecontent & {	
+		.subcontainer {@include column($column-duo-fullpagecontent, 1px);}
+	}
+	
+	#ShortPageContent & {
+		.subcontainer {	
+			@include column($column-duo-shortpagecontent, 1px);
+			padding: 0 15px;	
+			&.leftside {@include alpha;}
+			&.rightside {@include omega;}
+		}
+	}
+}
+
+
+
+
+
+
+/*#endregion*/
+
+
+
+/*#region "TRI BLOCK CONTAINER STYLES"*/
+
+.fullpagecontent {
+	.triBlock {
+		.subcontainer {	
+			padding: 15px;
+			@include column($column-tri-fullpagecontent, -2px); //odd... Chris
+			&.leftside {@include alpha;}
+			&.rightside {@include omega;}
+		}
+	}
+}
+
+#ShortPageContent {
+	.triBlock {
+		.subcontainer {	
+			padding: 10px;
+			@include column($column-tri-shortpagecontent, 15px);
+			&.leftside {@include alpha;}
+			&.rightside {@include omega;}
+		}
+	}
+}
+
+
+/*#endregion*/
+
+
+
+/*#region "QUAD BLOCK CONTAINER STYLES"*/
+$blocks-quad: 4;
+
+$column-quad-fullpagecontent: round($_columns / $blocks-quad) !default;
+$column-quad-shortpagecontent: round($columns-shortpagecontent / $blocks-quad) !default;
+
+
+.quadBlock { 
+
+	.fullpagecontent & {
+		.subcontainer {@include column($column-quad-fullpagecontent);}
+	}
+	#ShortPageContent & {
+		.subcontainer {@include column($column-quad-shortpagecontent, 28px);}
+	}
+
+}
+
+.groupcontainer {
+	.leftside {@include alpha;}
+	.rightside {@include omega;}		
+}
+
+
+/*#endregion*/
+
+
+
+
+/* _globalcontainer imported:finished */ 

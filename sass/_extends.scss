@@ -1,0 +1,43 @@
+/* _extends write:started */ 
+
+// local vars
+
+//
+//.uniBlock {@include uniBlock($container-withLeftNav,  $columns-withLeftNav, auto, $default-padding, 10px, false);}
+
+.emergency { color: $color-emergencyRed; &:hover {cursor: pointer;}} 
+
+
+
+
+// TODO: remove/obsolute
+.newContainer-borderless, 
+.newContainer {
+	@include newContainer($border:false);
+	margin-top: $default_margin_top;
+}
+
+//// TODO: OBSOLETE to be removed ref 1.1
+//.outline {
+//	@include addContainerBorder;
+//	padding: $default-padding-inside;
+//}
+
+
+
+//.pageText {@include pageTextOnly($columns-withLeftNav, $default-padding);}
+//.pageText-full {@include pageTextOnly($columns-withLeftNav, $default-padding);}
+
+//
+//.image {
+//	text-align: center;
+//	&.seperator > img {
+//		@extend .seperator;
+//		border-bottom: 3px solid red;
+//	}
+//}
+
+
+
+/* _extends write:finished */ 
+

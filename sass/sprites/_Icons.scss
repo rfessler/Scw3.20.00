@@ -1,0 +1,108 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$Icons-sprite-base-class: ".Icons-sprite" !default;
+$Icons-sprite-dimensions: false !default;
+$Icons-position: 0% !default;
+$Icons-spacing: 0 !default;
+$Icons-repeat: no-repeat !default;
+$Icons-prefix: '' !default;
+$Icons-clean-up: true !default;
+$Icons-layout:vertical !default;
+$Icons-inline: false !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $Icons-Sears_Logo_405x120-position: $Icons-position !default;
+   $Icons-Sears_Logo_405x120-spacing:  $Icons-spacing !default;
+   $Icons-Sears_Logo_405x120-repeat:   $Icons-repeat !default;
+ 
+   $Icons-new_button_background_white-position: $Icons-position !default;
+   $Icons-new_button_background_white-spacing:  $Icons-spacing !default;
+   $Icons-new_button_background_white-repeat:   $Icons-repeat !default;
+ 
+   $Icons-top_right_expand-position: $Icons-position !default;
+   $Icons-top_right_expand-spacing:  $Icons-spacing !default;
+   $Icons-top_right_expand-repeat:   $Icons-repeat !default;
+ 
+   $Icons-top_right_expand_white-position: $Icons-position !default;
+   $Icons-top_right_expand_white-spacing:  $Icons-spacing !default;
+   $Icons-top_right_expand_white-repeat:   $Icons-repeat !default;
+ 
+
+ $Icons-sprites: sprite-map("Mobile/Icons/*.png",
+ 
+   $Icons-Sears_Logo_405x120-position: $Icons-Sears_Logo_405x120-position, 
+   $Icons-Sears_Logo_405x120-spacing:  $Icons-Sears_Logo_405x120-spacing, 
+   $Icons-Sears_Logo_405x120-repeat:   $Icons-Sears_Logo_405x120-repeat,
+ 
+   $Icons-new_button_background_white-position: $Icons-new_button_background_white-position, 
+   $Icons-new_button_background_white-spacing:  $Icons-new_button_background_white-spacing, 
+   $Icons-new_button_background_white-repeat:   $Icons-new_button_background_white-repeat,
+ 
+   $Icons-top_right_expand-position: $Icons-top_right_expand-position, 
+   $Icons-top_right_expand-spacing:  $Icons-top_right_expand-spacing, 
+   $Icons-top_right_expand-repeat:   $Icons-top_right_expand-repeat,
+ 
+   $Icons-top_right_expand_white-position: $Icons-top_right_expand_white-position, 
+   $Icons-top_right_expand_white-spacing:  $Icons-top_right_expand_white-spacing, 
+   $Icons-top_right_expand_white-repeat:   $Icons-top_right_expand_white-repeat,
+ 
+ $layout: $Icons-layout,
+ $cleanup: $Icons-clean-up
+ );
+
+
+// All sprites should extend this class
+// The Icons-sprite mixin will do so for you.
+@if $Icons-inline {
+  #{$Icons-sprite-base-class} {
+    background-image: inline-sprite($Icons-sprites);
+  } 
+} @else {
+  #{$Icons-sprite-base-class} {
+    background: $Icons-sprites no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function Icons-sprite-width($name) {
+    $file: sprite_file($Icons-sprites, $name);
+    @return image-width($file);
+  }
+
+  @function Icons-sprite-height($name) {
+    $file: sprite_file($Icons-sprites, $name);
+    @return image-height($file);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin Icons-sprite-dimensions($name) {
+  @include sprite-dimensions($Icons-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin Icons-sprite-position($name, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($Icons-sprites, $name, $offset-x, $offset-y)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin Icons-sprite($name, $dimensions: $Icons-sprite-dimensions, $offset-x: 0, $offset-y: 0) {
+  @extend #{$Icons-sprite-base-class};
+  @include sprite($Icons-sprites, $name, $dimensions, $offset-x, $offset-y)
+}
+
+@mixin Icons-sprites($sprite-names, $dimensions: $Icons-sprite-dimensions, $prefix: sprite-map-name($Icons-sprites), $offset-x: 0, $offset-y: 0) {
+  @include sprites($Icons-sprites, $sprite-names, $Icons-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y)
+}
+
+// Generates a class for each sprited image.
+@mixin all-Icons-sprites($dimensions: $Icons-sprite-dimensions, $prefix: sprite-map-name($Icons-sprites), $offset-x: 0, $offset-y: 0) {
+  @include Icons-sprites(Sears_Logo_405x120 new_button_background_white top_right_expand top_right_expand_white, $dimensions, $prefix, $offset-x, $offset-y);
+}

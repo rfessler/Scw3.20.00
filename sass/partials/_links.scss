@@ -1,0 +1,189 @@
+
+/* _links imported:started */ 
+
+
+
+@mixin ButtonAsLink($color:$color_default-ButtonAsLink)
+{
+	background: none;
+	border: none;
+	color: $color;
+	padding: 0;
+	&:hover { color: $color_indicator-seperator; text-decoration:underline;}
+
+}
+
+@mixin ButtonAsButton($color: #fff, 
+	$backgroundColor: $color_background-button, 
+	$borderSize:1px, 
+	$borderColor:#000, 
+	$height:25px, 
+	$borderRadius:5px, 
+	$float: left) 
+{
+
+	@include border-radius($borderRadius);
+	background-color: $backgroundColor;
+	color: $color;
+	border: $borderSize solid $borderColor;
+	height: $height;
+	float: $float;
+	margin: 10px auto auto;
+//	padding: 3px;
+}
+
+
+@mixin LinkAsButton() {
+	margin-top: 4px;
+	margin-right:4px;
+	padding: 2px;
+	background-color: $color_background-button;
+	color: #FFF;
+	text-decoration: none;
+	border: solid 1px #20538D;
+	font: {size: 1em; weight: normal;}
+	@include border-radius(0 4px 4px 0);
+	@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.4));
+	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2));
+	@include transition-duration(0.2s);
+	@include user-select(none);
+
+	&:hover {
+		background: $color_default-ButtonAsLink-hover;
+		border: solid 1px $color_indicator-dark;
+		text-decoration: none;
+	}
+	&:active {
+		@include box-shadow(inset 0 1px 4px rgba(0, 0, 0, 0.6));
+		background: #2E5481;
+		border: solid 1px #203E5F;
+	}	
+	display:block;
+	float:right;
+	cursor:pointer;
+
+}
+
+
+.button-link {
+	@include border-radius(4px);
+	@include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.4));
+	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2));
+	@include transition-duration(0.1s);
+	@include user-select(none);
+
+	margin-top: -5px;
+	padding: 4px;
+	background-color: $color_background-button;
+	color: #FFF;
+	text-decoration: none;
+	border: solid 1px $color_background-dark;
+
+	&:hover {
+		background-color: $color_indicator-seperator;
+		border: solid 1px $color_indicator-dark;
+		text-decoration: none;
+	}
+
+	&.fixed {@extend .linkfixed;}	
+	&.right {float: right; }		
+	&.fixedleft {float: left; }		
+	&.article-button {margin-top: 5px; }
+}
+
+
+@mixin LinkAsActionButton() {
+	@include LinkAsButton;
+	background-color: $color_default-ActionButtonAsLink;
+	border: 1px solid $color_default-ActionButtonAsLink;
+	&:hover { 
+		background-color: adjust-hue($color_default-ActionButtonAsLink,-10%);
+		border: solid 1px adjust-hue($color_default-ActionButtonAsLink,-10%);
+		text-decoration: none;
+	}
+}
+
+
+
+@mixin LinkAsLink($underline:none, 
+	$fsize:1.0em)
+{
+	text-decoration: $underline;
+	font-size: $fsize;
+	color: $color_background-dark;
+	&:hover { color: $color_indicator-seperator; text-decoration:underline;}
+}
+
+
+
+
+.link {
+	position: absolute;
+	right: 10px;  //20
+	bottom: 10px;	
+}
+
+.linkfixed {
+	position: absolute;
+//	right: 10px;  //20
+//	bottom: 10px;	
+	#DryerVentCleaning & {bottom:10px;}
+	bottom: 13px;
+	
+	&.left {left: 10px;}
+	&.right {right: 10px;}		
+}
+
+
+//.buttonaslink {@include ButtonAsLink;}
+
+.linkasbutton {@include LinkAsButton;}
+
+
+a.linkasbutton  {padding: auto; cursor:pointer;}
+input[type="button"].linkasbutton {padding: auto;}	
+a.button-link {cursor: pointer;}
+
+//input.linkasbutton  {margin-top: -5px;}	
+
+.linkaslink {@include LinkAsLink;}
+
+.buttonaslink {@include ButtonAsLink;}
+.buttonasbutton {
+	@include ButtonAsButton;
+	&.fixed {@extend .linkfixed;}	
+	&.right {float: right;}			
+}
+
+
+
+
+
+.headerlink {@extend .linkaslink; }
+
+
+.morelink {
+	@include ButtonAsLink;
+	font: {weight: bold; size: 0.9em;}
+	margin-top: 10px;
+	float: right;
+}
+
+
+
+
+//.articlebutton {@extend .button-link; margin-top: 5px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* _links imported:finished */ 

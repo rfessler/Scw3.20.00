@@ -1,0 +1,300 @@
+/* _variables imported:started */ 
+
+
+$_columns: 18;		// 18 columns * 55px = 990px fullwidth
+$_column-width: 45px;
+$_gutter: 10px;
+
+
+$columns-leftnav: 4 !default;   // = 4
+$columns-fullpagecontent: $_columns !default;   // = 18
+
+$columns-shortpagecontent: $_columns - $columns-leftnav !default;    // 18-4 = 14
+
+
+$blocks-duo: 2;
+
+$width-duo-fullpagecontent: round($_columns / $blocks-duo) !default;
+$width-duo-shortpagecontent: round($columns-shortpagecontent / $blocks-duo) !default;
+
+
+
+$test-page-width: 0;
+
+//////
+//////.fullpagecontent {$test-page-width: $_columns;}
+//////
+//////.shortpagecontent {$test-page-width: $_columns - $columns-leftnav;}
+//////
+
+//@debug ".fullpagecontent $test-page-width::  #{$test-page-width}";
+//@debug ".shortpagecontent $test-page-width::  #{$test-page-width}";
+
+
+// border-box default
+$default-box-sizing-type: border-box;
+$fontawesome-span2-box-sizing: content-box;
+
+// border-radius default
+$default-border-radius: 7px;  
+
+
+
+$default-font_size: 1em/1.5;
+
+
+// Generic Colors
+
+
+
+$hoverColor: #dcf1f7 !default;
+
+$SurveyBorderColor: #d3d3d3 !default;
+$SurveyTextColor: #808080 !default;
+$ActiveIndicator: #d14e00 !default;
+
+$color-tableblue: #0055a7;
+$color-tablelightblue: #d3d7ed;
+
+
+/* REPLACE THESE COLOR VALUES IN THE _header.scss file */
+$black: #000;   // REPLACE
+$footerBackgroundColor: #003e7e !default;
+$emergencyRed: #e81900 !default;
+$warningYellow: #FFFFE0 !default;
+
+$seperatorBackgroundColor: lightgrey !default;
+
+
+$color-container-title:  #a59d8c !default;
+$color_header-section: #a59d8c !default;  // TODO: obsolete/remove
+$color_header-video: #a59d8c !default;	// TODO: obsolete/remove
+
+
+$color_article-large:  #a59d8c !default;
+
+$color_indicator-light: #e39566 !default;
+$color_indicator-seperator: #d14e00 !default;
+$color_indicator-dark: #7d2f00 !default;
+
+$color_background_form-default: #fff !default;
+$color_background_form-customer: #e5e5e4 !default;
+
+$color_default-border: #d3d3d3;
+$color_default-bordergray: #808080;
+
+$color_default-localoffers_background: #e2e8f5 !default;
+
+
+$color-emergencyPink: #f8e4e2 !default;
+$color-emergencyRed: #d14e00 !default;
+
+$color_background-lightBlue: #dcf1f7;
+$color_background-specialoffers: #dbd7d0;
+$color_background-banner: #0069aa !default;
+
+$color_background-footer: #003e7e !default;
+$color_background-form: #e5e5e4 !default;
+$color_background-seperator: #0069aa !default;
+$color_background-offers: #F0F0F0 !default;
+$color_background-offershover: #d6f0f6  !default;
+
+$color_default_background-LocalOfferGallery: #808080 !default;
+
+$color_background-table-header: #003e7e !default;
+$color_background-table-row: #dde7fb !default;
+$color_background-table-row-selected: #8AF58A !default;
+
+$color_background-light: #67A5CB !default;
+$color_background-button: #0169A8 !default;
+$color_background-dark: #003E7E !default;
+
+$color_background-constructionoptions: #003e7e !default;
+
+$color_spacer: #0069aa !default;
+$color_spacer-body: #ffffff !default;
+
+$color_header-page: #0069aa !default;  
+$color_header-pageTitle: #003E7E !default;  // TODO: obsolute/remove
+
+$color_background-articles: #d6f0f6 !default;
+
+
+$color_caption-pagetitle: #003E7E !default;  // TODO: obsolute/remove
+$color_pagetitle-caption: #003E7E !default;
+
+
+$color-white: #fff !default;
+$color-black: #000 !default;
+$color-lightBlack: #222 !default;
+$color-darkGray: #a9a9a9 !default;
+$color-darkBlue: #0069aa !default;
+
+$color_default-black: #000 !default;
+
+
+$color-leftNavBaseText: #003E7E !default;
+$color-leftNavLink-link: $color-leftNavBaseText !default;
+$color-leftNavLink-visited: #CB7713  !default;
+$color-leftNavLink-hover: #CB7713  !default;
+$color-leftNavLink-active: #CB7713  !default;
+
+
+// Placeholders - for reference only
+$color_placeholder-DefaultColor: #ccc;
+$color_placeholder-FocusColor: #999;
+
+$color_background-estimatecontainer_offset: #dbd7d0 !default;
+
+$default_margin_top: 40px !default;
+$default_container_top_seperation: 20px !default;
+
+// PADDINGS & MARGINS:
+$default_padding: 20px !default;
+$default_padding-inside: 15px !default;
+$default_padding-margin_offset: 20px !default;
+
+
+$default_spacing: 20px !default;
+
+
+
+$slider_columns: 13 !default;
+
+
+
+// Header
+$top_bar_container_height: 40px;	// Top Banner Container
+$top_navigation_container_height: 125px;	// Top Navigation Container
+
+
+// Body
+$free_estimate_container_height: 440px;	// Free Estimate Container
+$products_container: 440px;	// Products Container	
+
+
+// Products page
+$overview_container: 400px;	// overview Container - on products page
+$products_leftnav_height: 946px;
+$sears_advantage_height: 200px;
+
+// Default - Landing Page
+
+$container_height_default-services: 400px;	
+// Overview - Garage Doors
+
+// Overview - Garage Repair
+$container_height_repair-services: 380px;	
+$container_height-warning: 120px;	
+$container_height-resources: 200px;	
+$container_height-informational: 120px;
+
+
+// Overview - Garage Openers
+
+
+
+$container_height-article: 280px;	// TODO: remove/replaced
+$container_height-tipAndResources: 260px; // TODO: remove/replaced
+$container_height-productsOverview: 440px; //TODO: remove/replaced
+
+$container_height-resources: 260px;	// Tips and Resources Container	
+$container_height-video: 230px;	// Video 2 to a line with survey on right
+$container_height-video2: 350px; // Video 2 to a line
+$container_height-footer: 450px;	// Footer
+$container_height-carousel: 770px;
+$container_height-traditionalSeries: 360px;
+$container_height-localOffers: 150px;
+
+$container_height-constructionoptions: 550px;
+
+/* DEFAULT PAGE HEIGHTS */
+$container_height-products_offered: 420px;
+
+
+$container_height-productsNservices: 420px;
+
+
+$container_height-product_article: 300px;
+$container_height-tips_resources: 260px;
+
+
+/* GARAGE DOOR REPAIR HEIGHTS */
+$container_height-auto: auto;
+$container_height-schedule_repair: 365px;  // TODO: not good??
+$container_height-repairoverview: 350px !default;
+
+
+
+$ResourcesColumnWidth: 310px;	// Resources secondary container column width
+$ResourcesTextwidth: 100px; // Resources text width
+
+// Footer
+
+
+
+
+
+////////////////////// NEW HEIGHTS /////////////////////////
+$container_height-auto: auto !default;
+//$container_tri_height-ProductsOffered: 420px !default;
+//$container_tri_height-RepairsOffered: 380px !default;
+
+
+
+// Estimator
+$form_inputs_radius: 5px !default;
+
+
+$fontawesome-span2-box-sizing: content-box !default;
+
+$default-box_sizing_type: border-box !default;
+$default-border-radius: 7px !default;  
+$default-padding: 20px !default;
+$default_padding-inside: 15px !default;
+
+$default-border_total_width: 6px !default;
+
+$height-triBlock: auto !default;
+$height-leftnav: 100% !default;
+
+
+
+$info-border_color: #0069aa !default;
+$info-border_width: 8px !default;
+$info-background_color: #d6f0f6 !default; 
+
+
+$color_default-border: #d3d3d3 !default;
+$color_default-ButtonAsLink: #003E7E !default;
+$color_default-ButtonAsLink-hover: #d14e00 !default;
+$color_default-ActionButtonAsLink: #d14e00 !default;
+
+$color_indicator-seperator: #d14e00 !default;
+$color_background-button: #0169A8 !default;
+$color_default-black: #000 !default;
+$color_background-info: #d6f0f6 !default;
+
+
+
+
+
+
+
+
+
+
+
+
+// TODO: obsolute/remove
+$columns-maincontent: $_columns - $columns-leftnav !default;
+$columns-withLeftNav: $_columns - $columns-leftnav !default;
+
+
+
+$columns-shortpage: $columns-shortpagecontent !default;
+$columns-fullpage: $columns-fullpagecontent !default;
+
+
+
+/* _variables imported:finished */

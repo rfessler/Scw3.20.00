@@ -1,0 +1,232 @@
+/* _video imported:started */ 
+
+.mobile #ShortPageContent #video1Container { 
+	width: auto;
+}
+
+#video1Container {
+	@include container;
+	height: $container_height-video;
+	@extend .newContainer;
+
+	.videos {
+		@include column($_columns / 2, -5px);
+
+		&.first {
+			@include alpha;	
+			padding-right:20px;
+		}
+
+		&.last {
+			@include omega;
+			padding-left:20px;
+		}
+
+		.videos-header {
+			@include ArticleHeaderLarge;
+			border-bottom: 1px solid $color_header-video; 
+			padding-bottom: 10px;
+			color: $color_header-video;
+			text-align: left;
+		}
+
+		.videos-player {
+			@include column($_columns / 2);
+			$_gutter: 10px;
+			
+			/*@include ArticleTextSmall;*/
+
+			iframe {
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+
+			span {
+				padding: 0px 10px;
+				/*color: $color_background-footer;*/
+				width: 200px;
+				height: 20px;
+				float: left;
+				display: inline-block;
+				font-size: 0.9em;
+			}
+
+			a img {
+				&.video-arrow {
+					bottom: 35px;
+					cursor: pointer;
+					height: 75px;
+					left: 67px;
+					position: absolute;
+					width: 75px;
+				}
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+			
+		}
+
+		/* class to put video titles in same div as video links for microdata purposes -- AFH 11.8.13 */
+		.videos-player-onecolumn {
+			//$_gutter: 10px;
+			@include column($_columns / 5, 0px, 0px, 22px);						
+
+			iframe {
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+
+			span {
+				padding: 0px 10px;
+				/*color: $color_background-footer;*/
+				width: 200px;
+				height: 20px;
+				float: left;
+				display: inline-block;
+				font-size: 0.9em;
+			}
+
+			a img {
+				&.video-arrow {
+					bottom: 35px;
+					cursor: pointer;
+					height: 75px;
+					left: 67px;
+					position: absolute;
+					width: 75px;
+				}
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+			
+		}
+
+	}
+	
+}
+
+#video2Container {
+
+	@include container;
+
+	height: $container_height-video;
+	@extend .newContainer;
+
+	.videos-header2 {
+		@include ArticleHeaderLarge;
+		border-bottom: 1px solid $color_header-video; 
+		padding-bottom: 10px;
+		color: $color_header-video;
+		text-align: left;
+	}
+
+	.videos2 {
+		@include column($_columns / 4);
+
+		padding: 5px 10px;
+
+		&.first {
+			@include alpha;			
+			
+		}
+
+		&.last {
+			@include omega;
+			
+		}
+
+		.videos-player2 {
+			iframe {
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+
+			div {
+				@include ArticleTextSmall;
+				padding: 0px 10px;
+				color: $color_background-footer;
+				width: 200px;
+				height: 20px;
+				float: left;
+				display: inline-block;
+			}
+
+			a img {
+				padding: 10px;
+				width: 200px;
+				height: 150px;
+			}
+		}
+	}
+}
+
+#videoContainer {
+
+	&.slider-container {
+		@include container;
+		@extend .newContainer;
+		height: $container_height-video;
+
+		.slider-header {
+			@include ArticleHeaderLarge;
+			border-bottom: 1px solid $color_header-video; 
+			padding-bottom: 10px;
+			color: $color_header-video;
+			text-align: left;
+		}
+	
+		.slider {
+			display: block;
+			@include column($_columns / 4);
+
+			&.arrowleft {
+				@include alpha;
+				@include misc-sprite(arrowLeft);
+				top: 45%;
+				position: relative;
+				height: 30px;
+				&:hover {cursor: pointer;}
+			}
+			&.arrowright { 
+				@include omega;
+				@include misc-sprite(arrowRight);
+				top: 45%;
+				position: relative;
+				height: 30px;
+				&:hover {cursor: pointer;}
+			}
+		}	
+	}
+}
+
+/* _video imported:finished */
+
+.avideos {
+	text-decoration:none;
+	position: relative;
+
+	.video-size_245 {width: 245px;}
+
+	.video-arrow {
+
+		&.video-arrowsize_245 { left:79px; bottom:57px;}
+
+		bottom:35px;
+		cursor:pointer;
+		height:75px;
+		width: 75px;
+		left: 55px;
+		position: absolute;
+	}
+}
+
+
+img.contentlinkimage {
+	width: 180px;
+	height: 150px;
+}

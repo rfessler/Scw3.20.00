@@ -1,0 +1,154 @@
+/* _global write:started */ 
+
+ 
+.border {
+	border: 1px solid $color_default-border;
+	background: white;
+}
+
+.border_none {border: 0;}
+
+.bold { font-weight: bold;}
+
+.spacing_none {
+	padding: 0px 0px 0px 0px; //5px 0 10px; 
+	margin: 0px 0px 0px 0px;
+} 
+
+
+.margin_bottom_extend { margin-bottom:10px;}
+
+.edgetoedge {
+	@extend .border_none;
+	@extend .spacing_none;
+}
+
+.image {
+	text-align: center;
+	&.seperator > img {
+		@extend .seperator;
+		@include seperatorLine($bottom);
+	}
+}
+
+.align-friendly {text-align: center;}
+.align-formal {text-align: left;}
+
+.clear-floats,.row,.clearfix{zoom:1;}
+.clear-floats:after,.row:after,.clearfix:after{clear:both;}
+.clear-floats:before,.clear-floats:after,.row:before,.row:after,.clearfix:before,.clearfix:after{display:table;content:"";}
+
+
+
+#TriBlockDefaults {height: 440px;}
+
+#GarageDoorRepairTriBlock1 {height: 410px;}
+//#ProductsOfferedTriBlock1 {height: 410px;}
+
+//#RepairResources {height: 420px;}
+
+
+#TriBlockDefaults {
+	.subcontainer {
+		height: inherit;
+		position: relative;				
+	}
+	.triBlock {height: 100%}
+	.duoBlock-14 {height: 100%}
+	
+	//&.groupcontainer.sectionmargin {padding: 10px 0 10px 0;}
+}
+
+//.articlecaptionGDO {
+//	color: $color-lightBlack;
+//	font: {size: 1em; weight: bold;}
+//	margin-bottom: 5px;
+//	text-align: left;
+//	#GarageDoorOpenersTriBlock1 & {height: 40px;}
+//	#GarageDoorOpenersTriBlock2 & {height: 60px;}
+//}
+
+
+
+
+
+
+#AirDuctCleaningSteps {
+	height: auto;	
+	 @extend #TriBlockDefaults;
+	.triBlock { 
+		margin-bottom:10px; 
+		height: 320px; 
+
+	}
+	//img {@include border-radius(10px);}
+}
+#WaterRemovalSteps {
+	height: auto;	
+	@extend #TriBlockDefaults;
+	.triBlock { 
+		margin-bottom:10px; 
+		height: 350px; 
+	}
+}
+
+#GarageDoorRepairTriBlock1 {@extend #TriBlockDefaults;}
+
+#GarageDoorOpenersTriBlock1 {
+	@extend #TriBlockDefaults;
+	height: 360px;
+}
+#EntryDoorsTriBlock1 {@extend #TriBlockDefaults; height:340px;}
+
+#GarageDoorOpenersTriBlock2 {
+	@extend #TriBlockDefaults;
+	height: 417px;
+}
+#ProductsOfferedTriBlock1 {@extend #TriBlockDefaults; height: 465px;}
+#ProductsOfferedTriBlock2 {@extend #TriBlockDefaults; height: 465px;}
+#ProductsOfferedTriBlock3 {@extend #TriBlockDefaults; height: 465px;}
+
+#ProductTipsAndResources {height: 250px;}
+
+#estimateContainer {@extend #TriBlockDefaults;}
+
+
+
+#estimateContainer {
+	//.subcontainer:first-child {width: auto;}
+}
+
+
+ #PhotoshowContainer { @extend #TriBlockDefaults;}
+
+
+ .aligncenter { margin: 0 auto; }
+
+ .nobullets {list-style-type: none;}
+
+
+ /* Normalize the apple phone number to keep the styling*/
+a[href^=tel]{color:inherit;text-decoration:none;}
+
+.disclaimer {font-size: 0.75em;}
+
+/* LOCATIONS PAGE SECTION */
+
+.locations
+{
+	.StateHeaderFirst
+	{
+		font-weight: bold;
+		margin-bottom: 3px;
+	}
+	.StateHeader
+	{
+		@extend .StateHeaderFirst;
+		margin-top: 20px;
+	}
+}
+
+/* END LOCATIONS PAGE SECTION */
+
+/* _global write:finished */ 
+

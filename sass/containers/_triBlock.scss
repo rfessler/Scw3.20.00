@@ -1,0 +1,28 @@
+/* _triBlock imported:started */ 
+
+$blocks-tri: 3;
+
+$width-tri-fullpagecontent: round($_columns / $blocks-tri) !default;
+$width-tri-shortpagecontent: round($columns-shortpagecontent / $blocks-tri) !default;
+
+
+.triBlock {
+
+	.fullpagecontent & {	
+		.subcontainer {@include column($width-tri-fullpagecontent);}
+	}
+	
+	#ShortPageContent & {
+		.subcontainer {@include column($width-tri-shortpagecontent, 6px);}
+	}
+}
+
+
+
+
+
+
+
+
+
+/* _triBlock imported:finished */ 
