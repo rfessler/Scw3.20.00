@@ -1,0 +1,48 @@
+.icon-BLOG30X30 {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: -82px 0px;
+  width: 30px;
+  height: 30px;
+}
+.icon-Blog {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: 0px 0px;
+  width: 40px;
+  height: 40px;
+}
+.icon-FacBk30X30 {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: -82px -31px;
+  width: 30px;
+  height: 30px;
+}
+.icon-SATGUAR30X30 {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: 0px -82px;
+  width: 30px;
+  height: 30px;
+}
+.icon-SatGuar {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: -41px 0px;
+  width: 40px;
+  height: 40px;
+}
+.icon-YouTube30X30 {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: -31px -82px;
+  width: 30px;
+  height: 30px;
+}
+.icon-facebook-icon {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: 0px -41px;
+  width: 40px;
+  height: 40px;
+}
+.icon-youtube-icon {
+  background-image: url(dist/sprites/sprite.Social.png);
+  background-position: -41px -41px;
+  width: 32px;
+  height: 32px;
+}

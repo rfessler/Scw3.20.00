@@ -8,6 +8,7 @@ var gulp = require('gulp'),		// gulp core
 
 // Include Plugins
 	pkg = require('./package.json'),
+	bower = require('gulp-bower'),
 	bowerFiles = require("gulp-bower-files"),
 	plumber = require('gulp-plumber'),                  // disable interuption
 	gutil = require('gulp-util'),
@@ -22,7 +23,7 @@ var gulp = require('gulp'),		// gulp core
 	uglify = require('gulp-uglify'),					// uglifies the js
 	rename = require('gulp-rename'),					// rename files
 	browserSync = require('browser-sync'),              // inject code to all devices
-	spritesmith = require('gulp-spritesmith'),			// sprite images
+	spritesmith = require('gulp.spritesmith'),			// sprite images
 	gulpif = require('gulp-if')						// conditionally control the flow of streams.
 ;
 
@@ -156,15 +157,18 @@ gulp.task('cleanup', function(){
 6. SPRITES
 *******************************************************************************/
 gulp.task('sprites', function () {
-    return  gulp.src('images/**/*.png')
-                .pipe(spritesmith({
-                    imgName: 'sprite.png',
-                    styleName: 'sprite.css',
-                    imgPath: 'dist/sprites/sprite.png',
-                    groupBy: 'sprites'
-                }))
-                .pipe(gulpif('*.png', gulp.dest('dist/sprites/img')))
-                .pipe(gulpif('*.css', gulp.dest('dist/sprites/css/')));
+	var spriteData;
+    spriteData = gulp.src(AllFiles.Images)
+    	.pipe(spritesmith({    		
+    		imgName : 'sprites.png',
+    		cssName : '_sprites.scss',
+    		cssFormat: 'scss',
+		    cssClass: function (sprite) {
+		      sprite.name = 'sprite-' + sprite.name;
+    		}	
+    	}));
+    	spriteData.img.pipe(gulp.dest(DistPath.SpritesIMG));
+		spriteData.css.pipe(gulp.dest(DistPath.SpritesCSS));    
 });
 
 

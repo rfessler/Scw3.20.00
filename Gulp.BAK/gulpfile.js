@@ -8,6 +8,7 @@ var gulp = require('gulp'),		// gulp core
 
 // Include Plugins
 	pkg = require('./package.json'),
+	bower = require('gulp-bower'),
 	bowerFiles = require("gulp-bower-files"),
 	plumber = require('gulp-plumber'),                  // disable interuption
 	gutil = require('gulp-util'),
@@ -22,8 +23,10 @@ var gulp = require('gulp'),		// gulp core
 	uglify = require('gulp-uglify'),					// uglifies the js
 	rename = require('gulp-rename'),					// rename files
 	browserSync = require('browser-sync'),              // inject code to all devices
-	spritesmith = require('gulp-spritesmith'),			// sprite images
-	gulpif = require('gulp-if')						// conditionally control the flow of streams.
+	spritesmith = require('gulp.spritesmith'),			// sprite images
+	gulpif = require('gulp-if'),						// conditionally control the flow of streams.
+	lr = require('tiny-lr'),
+	server = lr()
 ;
 
 /**
@@ -33,82 +36,110 @@ var gulp = require('gulp'),		// gulp core
 var isprod = gutil.env.prod;
 
 /*******************************************************************************
-2a. PATH ASSIGNMENTS (RELATIVE TO ASSSETS FOLDER)
+2. FILE DESTINATIONS (RELATIVE TO ASSSETS FOLDER)
 *******************************************************************************/
-// Define the Source paths
+
 var SrcPath = {
 	JS: 	 'src/js/',
 	SASS: 	 'src/scss/',
 	Vendors: 'src/vendors/',
-	Images:  'images/sprites/'	
+	Images:  'src/images/'	
 };
 
-// Define the Distination/Target paths
 var DistPath = {
 	JS: 	 'dist/js/',
 	CSS: 	 'dist/css/',
 	Vendors: 'dist/vendors/',
-	SpritesCSS:  'src/scss/sprites/',
-	SpritesIMG: 	'dist/sprites/'
+	Images:  'dist/images/'
 };
 
-
-/*******************************************************************************
-2b. FILE ASSIGNMENTS (RELATIVE TO ASSSETS FOLDER)
-*******************************************************************************/
-// assign the files
-var Src = {	
-	sass: SrcPath.SASS + 'site.scss',  		// the site.scss main file
-	js: 	 SrcPath.JS + '**/*.js'				// all js files
+// assign the source files
+var Src = {
+	sass:	  SrcPath.SASS + '**/*.scss',  		// all sass files
+	sassSite: SrcPath.SASS + 'site.scss',  		// the site.scss main file
 };
 
 var Dist = {
-	css: pkg.name + '.css',						// dist/css/pkgname.css	
-	js: pkg.name + '.js',
+	css: DistPath.CSS + pkg.name + '.css'				// dist/css/pkgname.css
+	cssMinified: DistPath.CSS + pkg.name + 'min.css',				// dist/css/pkgname.css	
 
 
-
-	cleanup: [									// the dist folders to clean before distribution
-		DistPath.CSS + '*',
-		DistPath.JS + '*',
-		DistPath.SpriteIMG + '*',
-		DistPath.SpritesCSS + '_sprites.scss'
+	cleanse: [											// the dist folders to clean before distribution
+		DistPath.CSS + '*.*'
+		DistPath.JS + '*.*'
 	]
+
+
+
 };
 
-var AllFiles = {
-	SASS: SrcPath.SASS + '**/*.scss',
-	CSS: DistPath.CSS + '*.css',
-	JS: SrcPath.JS +  '**/*.js',
-	Images: SrcPath.Images + '**/*.png'
+
+// assign the target files 
+var xtarget = {
+	sassDirSrc : path.sassSrc + '/**/*.scss',			// all sass files
+	cssDirDist : 'dist/css',							// where to put minified css
+	cssSrcFile: path.sassSrc + '/site.scss',			// css initial project filename
+	cssDistFile : pkg.name + '.min.css',				// css output file name
+	cssComponentFilesSrc : [
+		'src/components/normalize-css/normalize.css',
+		'src/components/modernizr.js'		
+	],
+	cssComponentDirDist : 'dist/components',	
+	jsLintFilesSrc : [
+		path.jsSrc + '/global.js',
+		path.jsSrc + '/togglepaneloffers.js',
+		path.jsSrc + '/zipandoffers.js',
+		path.jsSrc + '/euc.js',
+		path.jsSrc + '/ajax.js'
+	],													// all js that should be linted
+	jsUglifyFilesSrc : [
+		'src/components/jquery/jquery.js',
+		'src/components/modernizr/modernizr.js'
+	],													// all js files that should not be concatinated
+	jsConcactFilesSrc : [],								// all js files that should be concatinated
+	jsSrcFileList : [],									// JS files to include
+	jsDistFile : pkg.name + '.min.js',					// compiled JS files
+	jsDirDist : 'dist/js',								// where to put minified js
+	jsComponentFilesSrc : [
+		'src/components/modernizr/modernizr.js'		
+	],
+	jsConcatFileName : pkg.name + 'min.js',
+	jsComponentDirDist : 'dist/components', 			// where to put componet js (minified) js
+	cleansingAreas : [
+		'dist/js/*.js',
+		'dist/css/*.css',		
+		'dist/components/*'		
+	],
+	sprites: [
+		'A/system/*.png',
+		'A/social/*.png'
+	]
 };
 
 /*******************************************************************************
 3. SASS TASK
 *******************************************************************************/
-gulp.task('sass', function(){
-	return gulp.src(Src.sass)				// get source files
-		.pipe(plumber())
-		.pipe(sass({							// run sass
-			compass: true,						// Opt: use compass
-			style: 'expanded',					// Opt: compass compile expanded
-			lineNumbers: true					// Opt: display line nos in file
+gulp.task('sass', function() {
+	return gulp.src(target.cssSrcFile)
+		.pipe(sass({
+			compass: true,
+			style: 'expanded',
+			lineNumbers: true
 		}))
-		.pipe(autoprefixer(						// run autoprefixer
-            'last 3 versions',					// Opt: prefix to last 3 versions
-            'safari 5',
-            'ie 8',
-            'ie 9',
-            'opera 12.1',
-            'ios 6',
-            'android 4'
-		))	
-		.pipe(rename(Dist.css))					// rename non-minified file
-		.pipe(gulp.dest(DistPath.CSS))			// output path
-		.pipe(gulpif(isprod, minifycss()))		// if isprod then minifycss
-		.pipe(rename({suffix: '.min'}))			// rename to minified file
-		.pipe(gulp.dest(DistPath.CSS));			// output minified file
-});  // ends sass task
+		.pipe(autoprefixer(
+            'last 3 versions'
+		))
+		.pipe(rename(pkg.name + '.css'))
+		.pipe(gulp.dest(path.cssDist))
+		.pipe(rename(pkg.name + '.min.css'))
+		.pipe(sass({
+			compass: true,
+			style: 'compressed',
+			lineNumbers: false
+		}))		
+		.pipe(gulp.dest(path.cssDist));
+});
+
 
 
 /*******************************************************************************
@@ -116,60 +147,55 @@ gulp.task('sass', function(){
 *******************************************************************************/
 // lint custom js 
 gulp.task('js-lint', function() {
-    return gulp.src(Src.js)              		// get the files
-        .pipe(jshint('.jshintrc'))              // lint the files
-        .pipe(jshint.reporter(stylish))         // present the results in a beautiful way
+    return gulp.src(target.jsLintFilesSrc)              // get the files
+        .pipe(jshint())                                 // lint the files
+        .pipe(jshint.reporter(stylish))                 // present the results in a beautiful way
 });
 
 // minify all js files that should not be concatinated
 gulp.task('js-uglify', function() {
-    return gulp.src()              				// get the files
-     	.pipe(gulpif(isprod, uglify())) 		// If we use the `--dev` flag, uglify will not take place, else uglify the files
-        .pipe(gulp.dest(Dist.JS))              	// where to put the files
+    return gulp.src(target.jsLintFilesSrc)              // get the files
+     	.pipe(gulpif(isprod, uglify())) 				// If we use the `--dev` flag, uglify will not take place, else uglify the files
+        .pipe(gulp.dest(target.jsDirDist))              // where to put the files
 });
-
 
 // minify & concatinate all other js
 gulp.task('js-concat', function() {
-  	return gulp.src(Src.js)						// get the files
-	  	.pipe(concat(Dist.js))  				// concatinate to one file
-	  	.pipe(stripDebug())						// strip debug statements
-	  	.pipe(gulp.dest(DistPath.JS))			// write the file non minified version
-	  	.pipe(rename({suffix: '.min'}))			// rename to minified version
-     	.pipe(gulpif(isprod, uglify())) 		// If we use the `--dev` flag, uglify will not take place, else uglify the files
-	  	.pipe(gulp.dest(DistPath.JS));			// write the uglified version
+  	return gulp.src(target.jsLintFilesSrc)				// get the files
+	  	.pipe(concat(pkg.name + '.js'))  				// concatinate to one file
+	  	.pipe(stripDebug())								// strip debug statements
+	  	.pipe(gulp.dest(path.jsDist))					// write the file non minified version
+	  	.pipe(rename(pkg.name + '.min.js'))				// rename to minified version
+     	.pipe(gulpif(isprod, uglify())) 				// If we use the `--dev` flag, uglify will not take place, else uglify the files
+	  	.pipe(gulp.dest(path.jsDist));					// write the uglified version
 });
 
 
 
 /*******************************************************************************
-5. CLEAN-UP DESTINATIONS TASK
-*******************************************************************************/
-gulp.task('cleanup', function(){
-	gulp.src(Dist.cleanup, {read: false})
-		.pipe(clean());
-});
-
-
-
-/*******************************************************************************
-6. SPRITES
+5. SPRITES
 *******************************************************************************/
 gulp.task('sprites', function () {
-    return  gulp.src('images/**/*.png')
-                .pipe(spritesmith({
-                    imgName: 'sprite.png',
-                    styleName: 'sprite.css',
-                    imgPath: 'dist/sprites/sprite.png',
-                    groupBy: 'sprites'
-                }))
-                .pipe(gulpif('*.png', gulp.dest('dist/sprites/img')))
-                .pipe(gulpif('*.css', gulp.dest('dist/sprites/css/')));
+	var spriteData;
+    spriteData = gulp.src(target.sprites)
+    	.pipe(spritesmith({    		
+    		imgName : 'sprites.png',
+    		cssName : 'sprites.scss',
+    		cssFormat: 'scss',
+		    cssClass: function (sprite) {
+		      sprite.name = 'sprite-' + sprite.name;
+    		}	
+    	}));
+    	spriteData.img.pipe(gulp.dest('B'));
+		spriteData.css.pipe(gulp.dest('C'));    
 });
 
 
+
+
+
 /*******************************************************************************
-7. BROWSER SYNC
+6. BROWSER SYNC
 *******************************************************************************/
 gulp.task('browser-sync', function() {
     browserSync.init(['dist/css/*.css', 'dist/js/*.js'], {	// files to inject
@@ -182,10 +208,10 @@ gulp.task('browser-sync', function() {
 
 
 /*******************************************************************************
-8. GULP TASKS
+7. GULP TASKS
 *******************************************************************************/
 // default task
-gulp.task('default', ['cleanup'], function(){
+gulp.task('default', function(){
 	gulp.start('sass', 'js-lint', 'js-uglify', 'js-concat', 'browser-sync');
 	gulp.watch('scss/**/*.scss', function() {
 	    gulp.start('sass');
@@ -201,21 +227,14 @@ gulp.task('default', ['cleanup'], function(){
 	});	
 });
 
-// Watch Task
-gulp.task('watch', ['browser-sync'], function(){
-	// watch .scss files
-	gulp.watch(AllFiles.SASS, ['styles']);
 
-	// watch .js files
-	gulp.watch(AllFiles.JS, ['scripts']); 
 
-	// watch image files
-	gulp.watch(AllFiles.Images, ['images']); 
+
+// clean task
+gulp.task('cleanse', function(){
+	gulp.src(target.cleansingAreas)
+		.pipe(clean());
 });
-
-
-
-
 
 // scripts task
 gulp.task('scripts', function(){
@@ -223,8 +242,9 @@ gulp.task('scripts', function(){
 });
 
 // styles task
-gulp.task('styles', ['cleanup', 'sass']);
-
+gulp.task('styles', function(){
+	gulp.start('sass');
+});
 
 gulp.task('development', ['scripts','styles']);
 

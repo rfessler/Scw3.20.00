@@ -1,0 +1,24 @@
+.icon-BlueCrew_200 {
+  background-image: url(dist/sprites/sprite.SearsLogos.png);
+  background-position: 0px 0px;
+  width: 200px;
+  height: 200px;
+}
+.icon-BlueCrew_240 {
+  background-image: url(dist/sprites/sprite.SearsLogos.png);
+  background-position: -201px 0px;
+  width: 240px;
+  height: 200px;
+}
+.icon-Sears_Logo {
+  background-image: url(dist/sprites/sprite.SearsLogos.png);
+  background-position: 0px -201px;
+  width: 170px;
+  height: 105px;
+}
+.icon-Sears_logo_footer {
+  background-image: url(dist/sprites/sprite.SearsLogos.png);
+  background-position: -171px -201px;
+  width: 170px;
+  height: 78px;
+}

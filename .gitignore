@@ -3,7 +3,7 @@
 # Web workbench (sass)
 .sass-cache/
 
-
+src/bower_components/
 
 node_modules/*
 stylesheets/*

@@ -1,0 +1,36 @@
+.icon-confirm {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: 0px -23px;
+  width: 16px;
+  height: 16px;
+}
+.icon-delete {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: 0px 0px;
+  width: 22px;
+  height: 22px;
+}
+.icon-error {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: -17px -23px;
+  width: 15px;
+  height: 15px;
+}
+.icon-information {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: -46px 0px;
+  width: 15px;
+  height: 15px;
+}
+.icon-insert {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: -23px 0px;
+  width: 22px;
+  height: 22px;
+}
+.icon-warning {
+  background-image: url(dist/sprites/sprite.system.png);
+  background-position: -46px -16px;
+  width: 15px;
+  height: 15px;
+}
